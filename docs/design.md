@@ -99,10 +99,9 @@ interface ownership, integration evidence, and compilation scheduling. Candidate
 findings become investigations until evidence supports a repair. No finding is
 required when the existing design is good.
 
-The supplied evaluations exercise these decisions on small Lean-only examples.
-They do not establish broad Mathlib search accuracy, large-project build cost,
-or multi-agent integration reliability. Real pilots should include those areas
-before claiming public production readiness.
+Small Lean-only pilots informed this draft. They do not establish broad Mathlib
+search accuracy, large-project build cost, or multi-agent integration reliability.
+Real pilots should include those areas before claiming public production readiness.
 
 ## Campaign persistence
 

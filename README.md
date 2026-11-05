@@ -8,7 +8,7 @@ refactors, and checks the result. It supports a single agent or an authorized
 team of agents. It is a set of instructions and handoff formats, not a new proof
 assistant or a hosted orchestration service.
 
-**Status:** first complete draft with campaign mode, `0.3.0-draft`. The workflow
+**Status:** first complete draft with campaign mode, `0.3.1-draft`. The workflow
 is ready for pilots; it is not a claim of demonstrated autonomous reliability on
 large libraries.
 
@@ -23,7 +23,7 @@ For Codex, install this prerelease for your user:
 
 ```sh
 mkdir -p "$HOME/.agents/skills"
-git clone --depth 1 --branch v0.3.0-draft https://github.com/bkhtmm/cLEAN.git "$HOME/.agents/skills/clean"
+git clone --depth 1 --branch v0.3.1-draft https://github.com/bkhtmm/cLEAN.git "$HOME/.agents/skills/clean"
 ```
 
 Use a new chat in your target Lean project and invoke `$clean`. If it does not
@@ -140,14 +140,13 @@ upgrade dependencies, or turn a local cleanup into an upstream submission.
 | [rubrics](rubrics/_common.md) | Shared evidence rules and ten quality angles linked from the entry point |
 | [records](references/records.md) | Portable run, finding, task, check, and handoff formats |
 | [design](docs/design.md) | Research sources, adaptations, and architecture choices |
-| [evaluation](evals/README.md) | Small fixtures and realistic behavioral test requests |
 | [agents/openai.yaml](agents/openai.yaml) | Optional UI metadata; the workflow itself is agent-neutral |
 
 ## Validation and next pilots
 
-The [validation history](evals/RESULTS.md) records the completed small Lean-only
-pilots and their limits. Run the cases in `evals/README.md` and a representative
-real Mathlib-based repository before relying on large autonomous campaigns.
+The draft has been tried on small Lean-only examples. Large Mathlib repositories,
+multi-agent campaigns, and automatic continuation across runtime turns still
+need testing before relying on large autonomous campaigns.
 The research sources and their reviewed versions are recorded in `docs/design.md`.
 
 ## License

@@ -4,7 +4,7 @@ Thumbs.db
 *.swp
 *~
 
-# Local Lean fixture builds
+# Local Lean build artifacts
 .lake/
 lake-manifest.json
 *.olean
