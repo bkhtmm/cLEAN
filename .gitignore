@@ -1,0 +1,23 @@
+# Local operating system and editor files
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Local Lean fixture builds
+.lake/
+lake-manifest.json
+*.olean
+*.ilean
+*.trace
+
+# Local Python/tool caches
+__pycache__/
+*.py[cod]
+.venv/
+
+# Generated runs and release packages
+work/
+outputs/
+*.zip
+*.tar.gz

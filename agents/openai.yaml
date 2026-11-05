@@ -1,0 +1,4 @@
+interface:
+  display_name: "cLEAN"
+  short_description: "Refactor Lean libraries for reuse and maintainability"
+  default_prompt: "Use $clean to improve this Lean repository for reuse and maintainability, preserve its mathematical claims, and verify the changes."
