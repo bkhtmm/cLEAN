@@ -122,3 +122,21 @@ Limits, missing checks, and material unresolved findings produce incomplete
 checkpoints. The skill describes how to resume; automatic continuation belongs
 to the host runtime. No platform-specific persistent goal, scheduler, or service
 is required or activated by selecting this mode.
+
+## Explaining results
+
+The [reporting guide](../workflows/report.md) adds presentation decisions to the
+existing handoff contract. It uses the run/check records as evidence and chooses
+explanations to fit the transformation and the user's needs. It introduces no
+fixed dashboard, chart quota, renderer dependency, or new acceptance criterion.
+
+Resolution's before-and-after organization and statement-footprint views motivate
+explaining the change itself. The FLT account's history and milestone views
+motivate optional explanations of a campaign's progression. These are design
+influences, not mandatory report formats or claims that cLEAN already extracts
+the same data automatically. Useful comparisons need preserved baseline inputs.
+
+The initial guide is ready for real-run trials. Those trials should assess
+whether users can understand the benefit, find the mathematics and evidence,
+and distinguish verified outcomes from proposals, partial coverage, and pending
+checks. Add repeatable rendering helpers only when actual use justifies them.

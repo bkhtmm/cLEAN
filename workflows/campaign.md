@@ -97,6 +97,10 @@ no defensible action remains, or the runtime/budget ends, save the candidate,
 coverage gaps, pending checks, reasons, and exact next action as an incomplete
 checkpoint. Do not mark the campaign complete just to end the turn.
 
+Use [Report](report.md) for a final report or user-facing checkpoint. Select a
+useful explanation of the integrated work and coverage; show history only when
+recorded events support it, keeping unresolved work visible.
+
 On continuation, load the current run state, verify snapshot and patch identity,
 refresh affected stale evidence, and take the recorded next useful action. Keep
 accepted units accepted unless new evidence reopens them. The host controls

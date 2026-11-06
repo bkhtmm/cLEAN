@@ -148,6 +148,9 @@ Return:
 5. Breaking-change and migration notes, including affected internal consumers.
 6. Verification requirements, resource limits, and unresolved decisions or work.
 
+Use [Report](report.md) to explain the proposed changes and their intended
+consumer benefit. Keep proposed boundaries and expected gains labeled as such.
+
 State which parts of the plan are ready to execute and which are conditional.
 Keep plan completion separate from task completion. For an end-to-end cleanup,
 continue into [Repair](repair.md) under the existing authorization. For a planning

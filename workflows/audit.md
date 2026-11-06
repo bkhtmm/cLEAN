@@ -109,6 +109,9 @@ Return a report containing:
 6. Candidate structural directions and a bounded area suitable for a first repair
    experiment, without presenting that direction as an already-accepted redesign.
 
+Use [Report](report.md) to present the findings, mathematical map, and actual
+coverage at a useful level of detail. Label structural directions as proposals.
+
 State whether the scoped audit is completed, partially completed, or blocked, and
 why. Keep that status separate from the condition of the audited library.
 For requests that include recommendations, pass the report to

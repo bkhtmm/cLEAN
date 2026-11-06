@@ -19,6 +19,9 @@ entry for the final accepted state.
   axiom policies, pinned Lean/dependency versions, and resource limits.
 - **Evidence:** baseline commands and failures, preserved specification location,
   mathematical sources, coverage by module and angle, and unperformed checks.
+- **Presentation evidence (when useful):** baseline/final measurements or graph
+  extracts with their method, scope, snapshot, and source/check links; observed
+  event times if history is shown; report and editable visual-source locations.
 - **Organization:** mathematical map, proposed module boundaries, important
   interfaces, task dependency order, and current integration point.
 - **Progress:** accepted work, active/ready tasks, unresolved decisions, remaining
@@ -116,3 +119,6 @@ A final report states what was requested, delivered, checked, and left open;
 links changes and evidence; identifies breaking changes; and gives the next
 useful action for deferred work. Report audit/plan/repair completion separately
 from whether the scoped repository has passed all required verification.
+
+Use [Report](../workflows/report.md) to select the user-facing explanation and
+visuals from these records. Keep the records authoritative as reports are revised.

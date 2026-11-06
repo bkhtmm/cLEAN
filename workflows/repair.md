@@ -107,6 +107,9 @@ the user's edits to obtain a clean status.
 
 ## Deliver
 
+Use [Report](report.md) to explain the observed benefit and how consumers use the
+result, selecting visuals only when they help communicate the actual change.
+
 Return the reviewed patch, task state, old-to-new declarations/modules, check
 records, observed improvement, and unresolved findings. Keep optional upstream
 candidates as local notes unless submission was requested. Execute further

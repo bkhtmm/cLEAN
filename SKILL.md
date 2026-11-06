@@ -37,6 +37,10 @@ only the relevant rubric and repair/verification sections. Broad inventories,
 separate design reports, and a campaign ledger are for work that needs them.
 The same preservation and acceptance requirements still apply.
 
+For user-facing handoffs, use [Report](workflows/report.md) to choose a useful
+explanation and any supporting visuals. Identify useful baseline evidence early;
+scale the presentation to the work and the user's requested format.
+
 ## Choose persistence
 
 Use **bounded mode** by default: finish the requested scope using the workflows

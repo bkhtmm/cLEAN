@@ -165,3 +165,6 @@ preserved claims, observed quality changes, migration notes, remaining findings,
 and limits. Distinguish a completed review that found problems from a patch that
 passed all required checks. Independent kernel/statement checks and mathematical
 faithfulness review answer different questions; retain both where needed.
+
+Use [Report](report.md) to communicate these results, with each displayed claim
+tied to its evidence and any pending checks kept visible.
