@@ -33,6 +33,13 @@ A failed or unavailable baseline does not prevent inspection or planning. It doe
 prevent claims that the library is verified or ready for an unchecked migration.
 Keep pre-existing failures visible so later work can distinguish regressions.
 
+Assess [build health](../rubrics/build-health.md): compare the pinned Lean/Mathlib
+pair with recent compatible stable releases and assess the baseline warnings.
+Record version constraints and warning exceptions with evidence. Keep upgrade
+findings separate from permission to change dependencies, and distinguish a
+successful build from a warning-free one. State any unperformed comparison or
+unchecked build targets.
+
 ## Map the mathematical structure
 
 Build a useful overview within the audit's scope. Identify:
@@ -100,7 +107,8 @@ mechanical failure.
 Return a report containing:
 
 1. Scope, revision, toolchain, policies, and coverage limitations.
-2. Baseline checks, existing failures, and unperformed checks.
+2. Baseline checks, existing failures and warnings, version freshness assessment,
+   documented exceptions or constraints, and unperformed checks.
 3. Claimed results and statement vocabulary, with their intended sources and any
    unresolved semantic questions.
 4. The mathematical and dependency overview, distinguishing file imports,

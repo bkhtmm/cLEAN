@@ -140,7 +140,7 @@ upgrade dependencies, or turn a local cleanup into an upstream submission.
 | [workflows](workflows/audit.md) | Audit, planning, repair, verification, and optional coordination |
 | [campaign](workflows/campaign.md) | Optional discovery loop, coverage, closure, and resumable checkpoints |
 | [report](workflows/report.md) | Flexible result explanations, visual selection, and links to supporting evidence |
-| [rubrics](rubrics/_common.md) | Shared evidence rules and ten quality angles linked from the entry point |
+| [rubrics](rubrics/_common.md) | Shared evidence rules and quality angles, including build health, linked from the entry point |
 | [records](references/records.md) | Portable run, finding, task, check, and handoff formats |
 | [design](docs/design.md) | Research sources, adaptations, and architecture choices |
 | [agents/openai.yaml](agents/openai.yaml) | Optional UI metadata; the workflow itself is agent-neutral |

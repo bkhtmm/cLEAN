@@ -47,6 +47,17 @@ compatibility requirements. The [naming reference](https://github.com/TauCetiPro
 was read as convention context; cLEAN directs agents to actual pinned precedents
 rather than copying that manual into each run.
 
+## Build and dependency health
+
+[Kim Morrison's Stacks review](https://kim-em.github.io/blog/2026-11-5-axioms-formalization-of-the-stacks-project/)
+motivates explicit checks for Lean/Mathlib freshness and warning-free builds.
+TauCeti's review angles run after CI; cLEAN must assess those conditions in the
+existing repository rather than inherit that assumption. The
+[build-health rubric](../rubrics/build-health.md) uses the shared finding and
+confidence rules, dated upstream evidence, and scoped diagnostic logs. It keeps
+upgrade recommendations separate from changing pins and distinguishes documented
+warning exceptions from an unqualified clean-build claim.
+
 ## Resolution: architecture and review burden
 
 Read the [Resolution article](https://resolution.org/post/formalizing-resolution-of-singularities)

@@ -67,6 +67,7 @@ A focused review loads only applicable angles.
 | Angle | Decision |
 | --- | --- |
 | [Correctness](rubrics/correctness.md) | Do statements and definitions express the intended mathematics? |
+| [Build health](rubrics/build-health.md) | Are Lean/Mathlib versions suitable for reuse, and do the scoped builds run without warnings? |
 | [Scope](rubrics/scope.md) | Does this change advance the requested cleanup while preserving claims? |
 | [Reuse](rubrics/reuse.md) | Can located mathematics replace duplicated implementation without losing a useful interface? |
 | [API design](rubrics/api-design.md) | Can consumers use the objects through a coherent public interface? |

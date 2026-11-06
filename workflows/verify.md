@@ -16,6 +16,11 @@ target root and record their real results. Inspect build configuration when
 necessary: a successful default target need not compile every library, example,
 benchmark, executable, or challenge file.
 
+For repository verification or changes to toolchain/dependency pins, assess
+[build health](../rubrics/build-health.md), including the dated release comparison.
+A bounded source repair may reuse applicable audit evidence; label wider health
+coverage that remains unreviewed. Upgrade findings do not authorize changing pins.
+
 Use the project's normal execution environment and host protections. Lean
 elaboration and build scripts can execute code; ordinary compilation does not
 provide the isolation or independent trust guarantees of a separately configured
@@ -115,6 +120,12 @@ Build the changed modules, affected consumers, and required final targets.
 Include examples and other targets outside the default build when affected.
 Run relevant configured linters and import checks; do not repeat an unchanged
 check solely to produce more logs.
+
+Apply the [build-health warning requirement](../rubrics/build-health.md#require-warning-free-builds-within-scope)
+to these targets. Record baseline and new diagnostics, any justified policy
+exceptions, and whether the checked scope is warning-free. A successful build
+with unresolved warnings does not pass that requirement merely because it adds
+no warnings; unrelated warnings outside a bounded repair remain open findings.
 
 Inspect old-to-new names and paths in sources, imports, umbrella files, docs,
 examples, tests, build targets, attributes, generated names, and auxiliary tools.
