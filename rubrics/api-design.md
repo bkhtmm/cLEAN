@@ -20,11 +20,12 @@ unnecessary burden, rather than treating a preferred binder style as a defect.
 Check interactions between global instances and existing ones; an instance can
 change unrelated consumers through ambiguous or expensive search.
 
-For bundled objects, ask whether equality reflects the intended mathematical
-object. Unconstrained fields or values at irrelevant indices can make two
-mathematically identical objects unequal. Exhibit the unwanted freedom and the
-extensionality/uniqueness task it obstructs. Representation data can be
-intentional, so do not quotient or discard it without examining consumers.
+A bundled object's equality must reflect the mathematical object it denotes.
+Require an extensionality argument based on its meaningful data. Report
+unconstrained fields or irrelevant indexed values that defeat this property,
+even without an existing equality consumer. Require removing or constraining
+that freedom. Any intentionally retained additional data must have a documented
+mathematical role and equality contract.
 
 ## Expose the useful mathematics
 
@@ -40,12 +41,12 @@ support reduction or computation; preserve that role rather than imposing an
 opacity rule. Do not require version-specific attributes such as exposure
 controls without confirming support and a consumer need in the pinned Lean.
 
-Evaluate automation as part of the interface. Normal-form rewrite lemmas can
-merit `@[simp]`; extensionality and other automation attributes should fit their
-intended use and installed tooling. Check orientation, looping, interaction,
-and representative consumers. Avoid globally tagging every new theorem, adding
-expensive broad rules, or deleting a useful specialized lemma because a general
-one proves it in one line. The [reuse rubric](reuse.md) explains that distinction.
+Check that normal-form rewrite rules have appropriate `@[simp]` annotations,
+intended grind rules have `@[grind]`, and applicable extensionality lemmas have
+`@[ext]`, using tooling supported by the pinned environment. Report missing or
+incorrect annotations. Check rewriting direction, loops, interactions, and
+representative consumers. Preserve specialized lemmas that serve a useful
+public interface. The [reuse rubric](reuse.md) explains that distinction.
 
 ## Acceptance evidence
 

@@ -21,10 +21,13 @@ theorem about objects satisfying useful laws from a claim that those objects
 exist or that the original concrete theorem has been proved. A consumer of the
 abstract theorem need not justify a claim about a concrete model.
 
-A new predicate or class with no meaningful consumer, construction, or
-nondegenerate instance deserves investigation into its intended meaning. Show
-the concrete gap; do not reject every abstract predicate merely for lacking an
-instance in the current file. A simple true lemma is not a vacuous theorem.
+For a new or semantically changed predicate, `Prop`-valued class, or hypothesis
+structure, require either a meaningful consuming theorem or a nondegenerate
+witness, already present or supplied by the refactor. Without either, leave the
+dependent transformation unaccepted. Pure moves and renames may reuse existing
+evidence. Record pre-existing gaps and continue independent cleanup.
+
+A simple true lemma is not a vacuous theorem.
 Vacuity means the claimed mathematical content disappears, for example through
 an impossible hypothesis, empty quantification, or trivial stand-in definition.
 

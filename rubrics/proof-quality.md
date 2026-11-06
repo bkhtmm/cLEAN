@@ -11,25 +11,23 @@ shared statement before demanding extraction. Keep genuine one-offs inline
 when a new lemma would add naming and dependency burden without benefit.
 A general reusable fact may deserve a public home even if it appears once.
 
-Prefer automation where it makes the proof stable and legible. Use only tactics
-available in the pinned environment. `simp`, `grind`, `omega`, explicit `rw`,
-structured `calc`, and direct term proofs each have appropriate uses. Broad
-automation can also depend on global instances, unexpected unfolding, or costly
-search; an explicit short argument can be clearer and faster. Do not replace a
-readable calculation merely because automation can close it, or mandate
-`simp only`/unrestricted `simp` for every proof.
+Default to stable automation available in the pinned environment when it
+replaces fragile sequences of individual rewrites. Short explicit arguments
+remain appropriate. When retaining a long calculation instead of automation,
+explain its concrete advantage in clarity, stability, or measured cost. Avoid
+dependence on incidental unfolding or unrelated global rules.
 
-Inspect accidental definitional equality across abstraction boundaries. A
-consumer repeatedly unfolding an implementation may indicate missing API; show
-the characteristic lemma that would protect it. `change`, `show`, `rfl`,
-`simpa`, and coercion management are legitimate tools. Report a concrete fragility
-or obscured mathematical step rather than banning those tokens or requiring a
-comment for every use.
+In new or rewritten proofs, first seek an explicit rewrite or characteristic
+API lemma before using `change` or `show`. If either is retained, include a brief
+comment explaining why the alternatives are unsuitable. Flag accidental
+definitional equality across wrappers or coercions and require an explicit
+interface lemma where needed.
 
-Long proofs can need intermediate lemmas or an explanation of their mathematical
-stages. Do not impose a universal line limit; a coherent induction may be easier
-to understand in one proof. A three-line proof can still be brittle if it
-succeeds through unexplained context-sensitive unfolding.
+A proof exceeding 50 lines should trigger a review for useful intermediate
+lemmas. Extract substantial reusable reasoning. When keeping the argument
+together is justified, add comments explaining its mathematical stages wherever
+the script leaves them unclear. Inspect short proofs too for unexplained,
+context-dependent unfolding.
 
 Check unnecessary hypotheses, unjustified `revert`/context manipulation, global
 option changes, and unexplained heartbeat or recursion-depth increases when
