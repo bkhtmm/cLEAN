@@ -23,9 +23,11 @@ Look for:
   construction with a natural mathematical contract.
 
 Start with the relevant topic and expand the search when evidence points beyond
-it. Search local declarations as well as pinned dependencies. Record meaningful
-search boundaries and inspect promising hits. Do not require every review to
-search the internet or assume a failed text search establishes absence.
+it. Search Mathlib at the project's pinned revision, alongside local declarations
+and other dependencies, for existing results and constructions that cover the
+implementation being reviewed. Record meaningful search boundaries and inspect
+promising hits. Do not require every review to search the internet or assume a
+failed text search establishes absence.
 
 ## Establish that a replacement actually fits
 
