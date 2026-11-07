@@ -79,6 +79,10 @@ actually examined and the search boundary; record candidates as findings. Readin
 a file or marking its mathematical area reviewed does not establish these checks.
 Batch the work proportionately and retain explicit coverage gaps for large scopes.
 
+When [delegation](coordinate.md) is available, authorized, and worthwhile, assign
+independent work or focused reviews—such as assumption minimization or Mathlib
+reuse—to separate agents, and verify their findings before integration.
+
 Do not confuse these cases:
 
 - A simple lemma can be faithful and useful. Simplicity alone is not vacuity.
