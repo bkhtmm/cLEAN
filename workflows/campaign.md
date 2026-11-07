@@ -79,6 +79,13 @@ The closure review asks:
 - Does a fresh search/review of the important boundaries identify further
   material work within scope? If so, put it on the frontier and continue.
 
+Ground closure in final source and the declaration/API coverage evidence, not
+only the completed plan or implementation summary. Recheck selected contracts
+and dependency replacements, including relevant unchanged code outside the
+initial findings. Challenge retention reasons that preserved duplicated proofs
+or unnecessary requirements. No new finding is required; disclose sampling and
+unreviewed scope instead of inferring completeness from an empty backlog.
+
 Complete only when closure supports these conditions. State the achieved scope
 and depth and remaining uncertainty; this is not proof of a globally optimal
 library. If material gaps, unresolved findings, or required checks remain, the

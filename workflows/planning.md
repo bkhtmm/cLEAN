@@ -22,11 +22,16 @@ assumption.
 
 Use the initial compatibility policy: documented breaking changes are allowed,
 with all affected in-repository uses migrated. Record any stricter project policy.
+Choose preservation checks by transformation. Do not convert claim preservation
+into a blanket signature freeze that excludes justified assumption reductions.
 Keep dependency upgrades and unrelated new mathematical capabilities outside
 ordinary refactoring unless they are part of the requested scope. Supporting
 lemmas that directly enable a scoped repair belong in that repair.
 
-## Propose a target organization
+## Propose coherent changes
+
+Include contract simplifications and located dependency replacements alongside
+structural changes. A useful bounded plan need not introduce or move modules.
 
 Use mathematical meaning and dependencies to choose boundaries. For each material
 structural proposal, name the affected objects, declarations, and consumers, and
@@ -67,8 +72,9 @@ across the entire repository before touching another:
 1. **Resolve or isolate integrity and baseline uncertainty.** Identify which
    repairs lack a reliable specification or usable baseline. Put mathematical
    corrections in their own workstream, and keep unaffected work available.
-2. **Establish enabling boundaries and interfaces.** Address shared definitions,
-   canonical APIs, and dependency problems on which several useful repairs rely.
+2. **Establish useful contracts and enabling boundaries.** Consider assumption
+   reductions and canonical library reuse alongside shared definitions, APIs,
+   and dependency changes. Prioritize their actual dependencies and value.
 3. **Recover demonstrated reuse.** Replace located duplication, extract shared
    reasoning, and generalize where an identified consumer benefits.
 4. **Improve the affected units' maintainability.** Simplify brittle proofs,

@@ -22,12 +22,16 @@ Look for:
 - Substantial repeated reasoning across consumers that could share a lemma or
   construction with a natural mathematical contract.
 
-Start with the relevant topic and expand the search when evidence points beyond
-it. Search Mathlib at the project's pinned revision, alongside local declarations
-and other dependencies, for existing results and constructions that cover the
-implementation being reviewed. Record meaningful search boundaries and inspect
-promising hits. Do not require every review to search the internet or assume a
-failed text search establishes absence.
+Start from the current proof's dependencies and wrappers, then search statements
+and constructions by their underlying mathematical operation. A project-specific
+theorem may be an instance of general algebraic, order-theoretic, or categorical
+infrastructure outside its subject directory. Search general constructions and
+universal properties as well as similarly named lemmas. Inspect promising sources
+and test the adapter before accepting a replacement; reject circular matches.
+Use the pinned Mathlib and other dependencies. Record the meaningful search
+boundary and reason a promising match does or does not fit. No fixed query count
+or exhaustive internet search is required; an unsuccessful bounded search does
+not establish that no replacement exists.
 
 ## Establish that a replacement actually fits
 
@@ -58,6 +62,10 @@ factor two short expressions that express different operations.
 
 Successful derivation from existing mathematics is necessary evidence for many
 reuse proposals, but it is not sufficient reason to delete a public declaration.
+Decide separately whether to retain the interface and whether to retain its
+independent implementation. A useful wrapper can delegate to existing mathematics;
+its API role alone does not justify re-proving that mathematics. Weigh the actual
+clarity, import, and maintenance costs of the adapter rather than line count alone.
 Check whether it provides:
 
 - A characteristic API lemma that hides the implementation of a new definition.
@@ -90,9 +98,9 @@ Label probes created for the review separately from pre-existing consumers.
 
 These examples illustrate judgments, not findings about the target:
 
-- **Actionable duplication:** a local theorem re-proves a located dependency
-  theorem with the same contract, adds no useful interface or automation role,
-  and its consumers can use the existing theorem through a demonstrated adapter.
+- **Actionable duplication:** a local proof reconstructs a located dependency
+  result and a demonstrated adapter removes duplicated maintenance. Retain the
+  interface if useful; delete it only when its role and migration justify that.
 - **Actionable repeated reasoning:** several proofs independently perform the
   same substantial argument, and a proposed shared lemma has identified
   consumers and simplifies their maintenance without distorting the mathematics.

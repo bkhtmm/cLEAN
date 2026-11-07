@@ -38,6 +38,8 @@ claim; a timeout without context does not identify its cause.
 
 For a finding, give the located pattern, its actual maintenance consequence,
 proposed replacement or extraction, and affected consumers. Acceptance preserves
-the statement and assumptions, builds the consumers, and demonstrates the
+the original claim, builds the consumers, and demonstrates the
 specific clarity, reuse, or measured performance improvement. A shorter proof
-alone is insufficient.
+alone is insufficient. Proof-only changes retain their statement; planned
+assumption reductions follow [generality](generality.md) and the generalized-
+theorem preservation check rather than freezing unnecessary assumptions.

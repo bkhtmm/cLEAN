@@ -14,11 +14,18 @@ entry for the final accepted state.
 
 - **Identity:** target path, base revision or snapshot, relevant uncommitted
   changes, current candidate revision or patch identity, and run directory.
+- **Skill identity:** cLEAN revision and relevant local changes when available,
+  or content hashes of the instruction files used. The version label alone may
+  not distinguish changing drafts. Record the executing model when available.
 - **Mandate:** requested operation (audit, plan, refactor, or verify), persistence
   mode (`bounded` or `campaign`), scope, main claims, effective compatibility and
   axiom policies, pinned Lean/dependency versions, and resource limits.
 - **Evidence:** baseline commands and failures, preserved specification location,
   mathematical sources, coverage by module and angle, and unperformed checks.
+  For contract/reuse review, identify examined declarations or coherent API groups,
+  depth, and dependency search boundaries; distinguish no justified issue found,
+  open candidates, and unreviewed material. Compact groups and finding links are
+  sufficient; no per-binder ledger is required.
 - **Presentation evidence (when useful):** baseline/final measurements or graph
   extracts with their method, scope, snapshot, and source/check links; observed
   event times if history is shown; report and editable visual-source locations.

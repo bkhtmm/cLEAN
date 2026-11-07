@@ -72,6 +72,13 @@ and shared infrastructure, including high-impact consumers and suspicious
 assumption boundaries. State why that sample is informative. Do not call reading
 a few attractive leaf lemmas a whole-repository semantic audit.
 
+Within that depth, review declaration contracts and dependency reuse using
+[generality](../rubrics/generality.md) and [reuse](../rubrics/reuse.md), including
+unchanged public/shared interfaces. Record the declarations or coherent API groups
+actually examined and the search boundary; record candidates as findings. Reading
+a file or marking its mathematical area reviewed does not establish these checks.
+Batch the work proportionately and retain explicit coverage gaps for large scopes.
+
 Do not confuse these cases:
 
 - A simple lemma can be faithful and useful. Simplicity alone is not vacuity.
@@ -80,9 +87,9 @@ Do not confuse these cases:
 - A generally useful fact may need relocation and export rather than becoming
   private. Conversely, a proof-specific helper does not become general by moving
   it into a generically named module.
-- A stronger theorem is useful when it preserves the original result and has a
-  natural application. Extra parameters without a demonstrated use are not an
-  improvement by themselves.
+- A simpler existing contract can justify a proportionate assumption reduction;
+  broader abstractions need a natural purpose. Recover the original result in
+  either case. Extra parameters alone are not an improvement.
 - A short proof is not necessarily robust; a long proof is not necessarily poor.
 - A missing source limits a faithfulness judgment. It does not establish that the
   formalization is wrong or faithful.

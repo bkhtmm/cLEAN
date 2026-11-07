@@ -59,6 +59,10 @@ Choose evidence appropriate to the change:
 | Replaced definition or representation | A checked equality, equivalence, isomorphism, or other mathematically appropriate relation to the preserved object, plus transport of the claimed properties and consumer behavior that matters |
 | Restructured main theorem API | Checked recovery of every affected original main claim through the new API, retaining its intended objects and permitted assumptions |
 
+Use identical-type comparison for unchanged contracts and checked recovery for
+authorized generalizations. A comparison tool's inability to accept a stronger
+replacement does not by itself make that replacement mathematically invalid.
+
 A copied theorem statement importing changed candidate definitions is not an
 independent reference. A theorem `newResult : NewProperty` does not preserve the
 old result merely because the text once also read `NewProperty`. Likewise,
@@ -156,6 +160,12 @@ Revisit the relevant rubrics and the concrete acceptance condition:
 - Can a weaker-assumption statement serve the identified consumer, with the old
   result still derivable?
 - Are names, docs, and source mappings accurate after moves?
+
+After an extraction or newly exposed API, revisit the original sites and the
+identified migration boundary for remaining independent copies. Retained adapters
+need a role; multiple implementations need their own justification. Review the new
+public signatures for unnecessary assumptions and dependency-level reuse too.
+Availability of a helper is not evidence that its consumers have been migrated.
 
 If measuring dependencies, state whether the graph is file imports or actual
 constant dependencies, and whether dependency packages are included. If measuring

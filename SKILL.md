@@ -82,6 +82,8 @@ A focused review loads only applicable angles.
 
 **Preserve mathematics and trust.** Keep the main claims and intended meanings of
 definitions. A generalized replacement must still derive the original claim.
+Preservation does not require freezing every original signature; record any
+stricter compatibility requirement rather than introducing one by default.
 Introduce no proof holes or additional trusted assumptions, and do not disguise
 an existing incomplete library as verified. A successful build alone does not
 establish semantic preservation. Keep an independent baseline specification for
