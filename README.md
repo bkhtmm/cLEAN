@@ -8,7 +8,7 @@ refactors, and checks the result. It supports a single agent or an authorized
 team of agents. It is a set of instructions and handoff formats, not a new proof
 assistant or a hosted orchestration service.
 
-**Status:** first complete draft with campaign mode, `0.3.1-draft`. The workflow
+**Status:** first complete draft with campaign mode, `0.3.2-draft`. The workflow
 is ready for pilots; it is not a claim of demonstrated autonomous reliability on
 large libraries.
 
@@ -23,7 +23,7 @@ For Codex, install this prerelease for your user:
 
 ```sh
 mkdir -p "$HOME/.agents/skills"
-git clone --depth 1 --branch v0.3.1-draft https://github.com/bkhtmm/cLEAN.git "$HOME/.agents/skills/clean"
+git clone --depth 1 --branch v0.3.2-draft https://github.com/bkhtmm/cLEAN.git "$HOME/.agents/skills/clean"
 ```
 
 Use a new chat in your target Lean project and invoke `$clean`. If it does not
