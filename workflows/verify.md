@@ -174,6 +174,47 @@ conditions; label cold, warm, and incremental runs. File count and line count
 are context, not standalone quality goals. No speed claim follows from a
 smaller-looking import list alone.
 
+## Reconcile theorem coverage
+
+Before the final report, apply the declared
+[theorem review scope](audit.md#theorem-coverage). Re-enumerate the final
+project-owned theorem/lemma inventory with the same inclusion rules and reconcile
+it against [individual review records](../references/records.md#theorem-review).
+For an explicitly sampled review, reconcile the selected cohort and report its
+size separately from the wider scope where known; unselected material prevents
+a full-scope claim but does not prevent completing the requested sample.
+For the declared review set, check:
+
+- Every final declaration has an ID and current, separately evidenced assumption
+  and reuse outcomes. Include new helpers and relevant unchanged declarations.
+- Every baseline ID still exists or has an explained move, rename, replacement,
+  removal, split, or merge mapping. Dropping a theorem from the census is not a
+  completed review or an assumption removal.
+- Evidence remains valid for the final definitions, instances, dependencies,
+  consumers, and replacement search context. Refresh affected outcomes; reuse
+  unaffected ones rather than restarting the whole audit after each edit.
+- Reconciliation reports missing, stale, duplicated, and unmapped records, the
+  enumeration/check method, and any census uncertainty. Do not assume a bundled
+  checker exists or certify completeness from a regex-only name list.
+
+Report a numerator and denominator for each check over the final inventory,
+plus theorems with both checks current. Separate baseline mappings and added
+theorems so inventory growth cannot masquerade as improved coverage. Missing or
+stale outcomes, or an incomplete census, prevent a full-coverage claim. A reviewed
+candidate can remain unresolved: examined coverage does not mean no defects or
+an accepted repair. A resource limit produces an honest partial handoff, not a
+silently smaller scope.
+
+Reconcile the [verified improvement records](../references/records.md#verified-improvement)
+against the final patch, linked preservation/consumer checks, and baseline-to-final
+mappings. Exclude reverted, unintegrated, or unchecked edits from verified totals;
+deduplicate repeated work and keep whole assumption removals separate from
+weakening. Check Mathlib replacement counts against located results and retained
+adapters, with local replacements reported separately. Recompute the final
+[measurements](../references/records.md#measurements) over the declared source set
+and check that displayed totals and deltas follow the recorded counting rules.
+Missing measurements are unavailable with a reason, not zero.
+
 ## Accept or return
 
 Accept a task only when its required build, preservation, trust, migration, and

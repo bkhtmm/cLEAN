@@ -18,17 +18,17 @@ entry for the final accepted state.
   or content hashes of the instruction files used. The version label alone may
   not distinguish changing drafts. Record the executing model when available.
 - **Mandate:** requested operation (audit, plan, refactor, or verify), persistence
-  mode (`bounded` or `campaign`), scope, main claims, effective compatibility and
-  axiom policies, pinned Lean/dependency versions, and resource limits.
+  mode (`bounded` or `campaign`), scope and review depth/exclusions, main claims,
+  effective compatibility and axiom policies, pinned Lean/dependency versions,
+  and resource limits.
 - **Evidence:** baseline commands and failures, preserved specification location,
   mathematical sources, coverage by module and angle, and unperformed checks.
-  For contract/reuse review, identify examined declarations or coherent API groups,
-  depth, and dependency search boundaries; distinguish no justified issue found,
-  open candidates, and unreviewed material. Compact groups and finding links are
-  sufficient; no per-binder ledger is required.
-- **Presentation evidence (when useful):** baseline/final measurements or graph
-  extracts with their method, scope, snapshot, and source/check links; observed
-  event times if history is shown; report and editable visual-source locations.
+  Keep the [theorem review](#theorem-review) inventory and individual outcomes;
+  broader area/API summaries supplement rather than replace them.
+- **Measurements:** baseline/final values using the [counting rules](#measurements),
+  with scope, snapshot, method, exclusions, and source/check links. Link verified
+  improvements and report locations. Extra graph extracts and observed event
+  times are useful when they support the explanation.
 - **Organization:** mathematical map, proposed module boundaries, important
   interfaces, task dependency order, and current integration point.
 - **Progress:** accepted work, active/ready tasks, unresolved decisions, remaining
@@ -36,6 +36,92 @@ entry for the final accepted state.
 
 If Git is absent, use a copied snapshot and file hashes. A timestamp alone is
 insufficient to identify the source that a successful check validated.
+
+## Theorem review
+
+Keep one inventory of project-owned, source-authored theorem/lemma declarations
+within the declared review scope, including private and unchanged declarations.
+Identify dependency, generated, vendored, or other excluded material explicitly.
+Record the census method, input snapshot, and completeness limitations. Retain
+baseline and final inventories and the result of reconciling them with reviews.
+
+Each declaration needs:
+
+- **Identity:** stable run ID, original and current qualified names/source
+  locations, and baseline/current signatures or links to them. Preserve the ID
+  across moves and renames. Map splits, merges, replacements, and removals;
+  assign new IDs to newly introduced helpers rather than losing their coverage.
+- **Assumption review:** coverage (`unreviewed`, `reviewed`, or `stale`), outcome,
+  rationale, and evidence about the inspected requirements. Distinguish complete
+  deletion from weakening; link findings, justified retentions, and checked
+  weaker signatures where applicable.
+- **Reuse review:** the same separate coverage/outcome/evidence fields, including
+  located Mathlib/local candidates, dependency search boundary, contract fit,
+  adapter checks, and any reason to retain the public interface.
+- **Validity:** reviewed snapshot, relevant definition/instance/dependency
+  context, reviewer or task, and why prior evidence remains valid if reused.
+  Reopen affected checks when their inputs or available replacement APIs change;
+  unchanged theorem text alone does not establish validity.
+
+Outcomes distinguish no justified issue found, a candidate or unresolved question,
+a confirmed issue, and justified retention. An inspected candidate can count as
+reviewed while its investigation remains open; it is not a verified improvement.
+An unavailable substantive review remains unreviewed with a reason. Shared
+context and search logs may be linked from several rows, but every declaration
+needs its own two outcomes. No per-binder inventory is required for declarations
+where no removal is proposed.
+
+Full coverage requires a complete census and current individual review evidence
+for both checks on every surviving declaration. Account for baseline removals
+through explicit disposition/migration records. Missing or stale rows are gaps;
+excluded or removed declarations must not silently disappear from the record.
+Record the actual reconciliation procedure and result. These Markdown fields
+do not themselves run a census or verify the quality of an AI judgment.
+
+## Verified improvement
+
+Record each implemented improvement once, linked to its finding/task and checks:
+
+- **Identity/type:** improvement ID, baseline declaration IDs or module paths,
+  final counterparts, and category (assumption removal, Mathlib reuse, local
+  reuse, or structural change).
+- **Before/after:** old/new signatures and the exact deleted requirements; or
+  independent implementation and located replacement/adapter; or explicit
+  move, rename, split, or merge mapping. Keep a useful retained wrapper visible.
+- **Evidence/state:** preservation, proof/consumer/integration checks, final
+  snapshot, task disposition, and measured units contributed to the summary.
+
+Only net improvements retained in the checked, integrated final candidate
+contribute to completed-repair totals. Proposed, unverified, reverted, or
+superseded edits remain distinguishable. Deduplicate workers and repeated edits
+through the same baseline identities; a split or merge must not multiply credit.
+Audit/plan runs report findings and coverage with zero integrated repairs.
+
+## Measurements
+
+Use the same counting rules and project-owned scope before and after, including
+corresponding destinations of moved files. Record the actual included file sets,
+filters, snapshots, method, and units. Capture the baseline before editing or
+recover it from the preserved snapshot; mark unavailable values as unavailable,
+not zero. A checkpoint identifies its current candidate rather than a fictitious
+final result.
+
+| Measure | Counting rule |
+| --- | --- |
+| Theorem coverage | Baseline/final census sizes, additions/removals, and current reviewed/total counts separately for assumptions and reuse; expose stale and unreviewed counts and census limitations. |
+| Assumptions removed | Count original requirement occurrences wholly removed from surviving or recovered original claims, plus distinct baseline theorems affected. Weakening/replacing a requirement or deleting its whole theorem does not count. Verify combined removals and original-claim recovery. |
+| Dependency reuse | Count distinct theorem sites with candidates, verified adapters, and integrated replacements separately. Separate Mathlib from local reuse; distinguish redundant declarations removed from useful interfaces retained with delegated proofs. Record unresolved and withdrawn candidates. |
+| Remaining findings | Separate confirmed open issues from unverified candidates, deferred issues, and justified retentions; do not infer zero defects from an empty or partial review. |
+| Lean lines/files/directories | Physical lines, including blank/comment lines; counted `.lean` files; and distinct directories directly containing those files. State the line-count method and root handling. Exclude dependencies, `.lake`, generated/vendor material, probes, and run/report artifacts. Show baseline, final, and delta. |
+| Reorganization | Count mapped file/declaration moves and renames, with splits and merges reported as separate events. Give entity type and mappings; added/deleted file totals alone do not establish a move. Report new helper declarations separately. |
+
+Do not turn code size or organization counts into quality scores. Other
+measurements, such as import footprint or build cost, remain task-dependent and
+need comparable inputs. The verified-edit totals establish completed work;
+they do not establish a change in benchmark flag rates. An optional before/after
+judge evaluation records its model/protocol, pass count, sampling, and denominator;
+compare matched theorem cohorts and show additions/removals separately. Keep
+judge flags separate from Lean-verified findings and repairs.
 
 ## Campaign state
 

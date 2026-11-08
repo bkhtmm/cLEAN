@@ -124,6 +124,11 @@ It does not require edits when review finds the existing code already useful.
   conditions; for repair requests, the corresponding reviewable patch.
 - Check results tied to the actual candidate, preservation evidence for affected
   claims, migration notes, and an honest account of unfinished work.
+- Individual assumption/reuse review outcomes for every in-scope theorem in a
+  broad audit or cleanup, with new helpers, migrations, and coverage gaps tracked.
+- Numerical coverage and verified improvement totals, including whole hypotheses
+  removed and Mathlib replacements, plus available before/after Lean source-size
+  and organization measurements. Each total links to its supporting records.
 - A proportionate explanation of the result, with consumer examples and selected
   visuals when useful. The report format follows the work and your preferences.
 

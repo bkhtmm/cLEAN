@@ -22,6 +22,11 @@ Record:
 - The claimed main results, their locations, the definitions their statements use,
   and the sources or project documentation that describe the intended mathematics.
 
+Before edits, capture the theorem inventory below and the baseline
+[measurements](../references/records.md#measurements). Preserve the counted source
+set, source snapshot, and counting method for the final comparison. An audit or
+plan records findings and baseline scale, not repairs it has not performed.
+
 Use the project's documented build and checking commands where available. Record
 each check's command, scope, result, and relevant diagnostics. Distinguish a source
 failure from missing tools, unavailable dependencies, and exhausted resources.
@@ -72,12 +77,10 @@ and shared infrastructure, including high-impact consumers and suspicious
 assumption boundaries. State why that sample is informative. Do not call reading
 a few attractive leaf lemmas a whole-repository semantic audit.
 
-Within that depth, review declaration contracts and dependency reuse using
-[generality](../rubrics/generality.md) and [reuse](../rubrics/reuse.md), including
-unchanged public/shared interfaces. Record the declarations or coherent API groups
-actually examined and the search boundary; record candidates as findings. Reading
-a file or marking its mathematical area reviewed does not establish these checks.
-Batch the work proportionately and retain explicit coverage gaps for large scopes.
+The representative semantic inspection above does not substitute for the two
+individual checks in [theorem coverage](#theorem-coverage). Apply the relevant
+rubrics to definitions and other public/shared interfaces too; keep their review
+boundary visible without counting them as source-authored theorems.
 
 When [delegation](coordinate.md) is available, authorized, and worthwhile, assign
 independent work or focused reviews—such as assumption minimization or Mathlib
@@ -97,6 +100,56 @@ Do not confuse these cases:
 - A short proof is not necessarily robust; a long proof is not necessarily poor.
 - A missing source limits a faithfulness judgment. It does not establish that the
   formalization is wrong or faithful.
+
+## Theorem coverage
+
+For a broad library audit or cleanup, give every in-scope source-authored theorem
+or lemma its own [review record](../references/records.md#theorem-review), including
+private declarations and unchanged code. A focused repair covers changed and
+affected declarations; an explicitly sampled audit states its selection and
+cannot claim full theorem coverage. This depth is independent of persistence mode.
+
+1. **Establish the inventory.** Enumerate project-owned Lean sources and their
+   theorem/lemma declarations at the baseline snapshot. Record inclusion rules,
+   exclusions, enumeration method, and limits. Exclude dependency packages and
+   generated auxiliaries explicitly. Prefer available Lean-aware source or
+   declaration tooling; reconcile its output with source locations, including
+   private names, section/namespace context, and project declaration syntax.
+   A line-based name search alone does not establish a complete inventory.
+   If completeness cannot be established, retain the known entries and label the
+   census and coverage partial. Assign stable IDs before edits.
+2. **Review each contract.** Use [generality](../rubrics/generality.md) to recover
+   actual binders and instances and ask which hypotheses can be removed entirely.
+   Track weakening or broader abstraction separately. Use
+   [reuse](../rubrics/reuse.md) to search pinned Mathlib and local mathematics for
+   replacements, recording the search boundary and the interface's purpose.
+   Examine the proof, definitions, relevant instances, and consumers as needed;
+   individual attention does not mean judging an isolated statement.
+3. **Return two individual outcomes.** For each ID, record assumption and reuse
+   coverage separately, with a reason and evidence or a linked finding. Coherent
+   file/API batches can share context and search evidence, but every theorem
+   needs its own conclusion. A batch-complete message or file-level verdict
+   cannot fill missing outcomes. No issue found means only within that review's
+   depth and search boundary; unresolved candidates remain visible.
+4. **Investigate supported candidates.** Test concrete weaker signatures and
+   replacement adapters in the pinned environment before accepting repairs.
+   Record compiled checks separately from reviewer judgments. Useful wrappers
+   may retain their interface while delegating the proof; substantial unproved
+   generalizations remain investigations or deferred work. There is no zero-flag
+   target and no requirement to invent a change for every reviewed theorem.
+5. **Maintain and reconcile coverage.** Use the inventory during cleanup and
+   finish unreviewed entries before final verification. Map moves, renames,
+   removals, splits, and merges; add new helper theorems. Reopen affected outcomes
+   when signatures, definitions, instances, proof dependencies, consumers, or
+   available replacement APIs change. Unchanged theorem text alone is insufficient
+   evidence of validity. Apply the final
+   [reconciliation](verify.md#reconcile-theorem-coverage), including for an audit
+   with no source edits.
+
+Use available tools or a run-local check to compare inventory IDs with current
+review records and record its result. This Markdown workflow supplies no bundled
+census/checker or automatic enforcement. Reconciliation detects missing or stale
+records; it does not prove that a model's mathematical judgment is correct.
 
 ## Record findings for handoff
 
@@ -129,7 +182,10 @@ Return a report containing:
    experiment, without presenting that direction as an already-accepted redesign.
 
 Use [Report](report.md) to present the findings, mathematical map, and actual
-coverage at a useful level of detail. Label structural directions as proposals.
+coverage at a useful level of detail, including numerical coverage for both
+theorem checks, findings by disposition, and baseline measurements. Label
+structural directions as proposals and integrated repair counts as zero for an
+audit-only run.
 
 State whether the scoped audit is completed, partially completed, or blocked, and
 why. Keep that status separate from the condition of the audited library.

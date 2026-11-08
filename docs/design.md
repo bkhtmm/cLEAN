@@ -1,6 +1,7 @@
 # Design and research record
 
-Reviewed on 6 November 2026. This document explains cLEAN's choices; runtime
+Research sources reviewed on 6 November 2026; theorem coverage and reporting
+design updated on 8 November 2026. This document explains cLEAN's choices; runtime
 agents normally need only the entry point and the relevant workflows/rubrics.
 The instructions synthesize the sources below rather than vendoring their
 prompts. cLEAN is not endorsed by these projects.
@@ -139,7 +140,8 @@ is required or activated by selecting this mode.
 The [reporting guide](../workflows/report.md) adds presentation decisions to the
 existing handoff contract. It uses the run/check records as evidence and chooses
 explanations to fit the transformation and the user's needs. It introduces no
-fixed dashboard, chart quota, renderer dependency, or new acceptance criterion.
+fixed dashboard, chart quota, or renderer dependency. Numerical summaries use the
+counting and evidence rules below without imposing a visual report format.
 
 Resolution's before-and-after organization and statement-footprint views motivate
 explaining the change itself. The FLT account's history and milestone views
@@ -151,3 +153,29 @@ The initial guide is ready for real-run trials. Those trials should assess
 whether users can understand the benefit, find the mathematics and evidence,
 and distinguish verified outcomes from proposals, partial coverage, and pending
 checks. Add repeatable rendering helpers only when actual use justifies them.
+
+## Individual coverage and measured changes
+
+The [TauCeti quality-indicators article](https://taucetiproject.org/blog/2026-10-28-simple-quality-indicators-for-lean-libraries/),
+read on 8 November 2026, asks individual-theorem questions about entirely removable
+hypotheses and Mathlib duplicates or one-line consequences. These are partial,
+model-judged indicators, not a complete definition of library quality. They
+motivate guaranteed declaration coverage for two focused checks alongside cLEAN's
+broader semantic and architectural review.
+
+The substantive generality/reuse rubrics already describe those checks. The new
+mechanism is an initial census, two separately evidenced outcomes per theorem,
+stable migration identities, and a final reconciliation. Broad audits and cleanups
+require that coverage independently of bounded/campaign mode; focused repairs
+retain their limited scope. Other review angles can retain declared sampling.
+New helpers and context changes reopen relevant work. The Markdown contract does
+not supply a census executable or guarantee the quality of a model's judgment.
+
+Reports derive verified change totals from accepted, integrated final edits and
+their checks: individual hypotheses wholly removed, distinct theorems improved,
+and independent implementations replaced through Mathlib or local reuse. Useful
+wrappers need not disappear. Before/after source size and migration counts explain
+scale and organization, without becoming quality goals. Findings, verified fixes,
+and optional external judge rates remain distinct; added/removed declarations and
+judge variability must not be hidden by a single percentage. Whether exhaustive
+coverage improves independent evaluation scores remains a hypothesis for real runs.

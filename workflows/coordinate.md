@@ -36,6 +36,9 @@ Claim a task before editing. Send the worker:
 
 - Its task ID, base snapshot, read/write boundary, and isolated location.
 - The desired mathematical and consumer outcome and relevant findings.
+- For theorem review, the assigned inventory IDs and the two required checks;
+  batches may share context, but every assigned declaration needs its own
+  results and evidence in the [review record](../references/records.md#theorem-review).
 - Agreed definitions, signatures, namespaces, import direction, and migration
   requirements; identify any interface it must not change unilaterally.
 - Applicable skill workflows and rubrics, baseline limitations, preservation
@@ -74,7 +77,9 @@ first integrated unit to measure whether the partition and build schedule work.
 
 1. Receive the worker's [handoff](../references/records.md#handoff-and-completion):
    patch/base, modified interfaces, migration map, check inputs and results,
-   observed improvement, and remaining issues.
+   observed improvement, and remaining issues. For theorem review, reconcile
+   returned individual results against the assigned IDs; a file-level verdict
+   or worker completion message does not account for missing declarations.
 2. Review against task acceptance and the preserved specification. For important
    definition changes, use a reviewer who did not author the replacement when
    possible. Independence improves judgment; it does not replace Lean checks.
@@ -85,12 +90,17 @@ first integrated unit to measure whether the partition and build schedule work.
    attributed to their original snapshots. Mark `integrated` only after the
    required combined checks pass; invalidate evidence whose inputs changed.
 5. Update the shared state, rebase remaining work deliberately, and dispatch the
-   next ready tasks.
+   next ready tasks. Reconcile new helpers and migrations, reopen reviews whose
+   context changed, and deduplicate [improvement records](../references/records.md#verified-improvement)
+   against changes retained in the combined candidate.
 
 In [campaign mode](campaign.md), the coordinator also owns coverage and the
 discovery frontier. When the initial tasks finish, inspect the next uncovered
 area or perform closure review; do not end the campaign on worker completion
-counts. Dispatch a fresh closure reviewer only when delegation is authorized.
+counts. For full theorem coverage, run the
+[final reconciliation](verify.md#reconcile-theorem-coverage) against the current
+source inventory and review records. Dispatch a fresh closure reviewer only
+when delegation is authorized.
 
 For a stopped or lost worker, inspect its patch and logs before reassignment;
 record the old claim as released so two workers do not resume the same task.

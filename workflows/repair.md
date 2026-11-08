@@ -26,6 +26,12 @@ regressions. Do not silently repair unrelated failures or call the whole tree
 verified. An unavailable compiler permits an explicitly unverified patch only
 when a source-level change is still meaningful; leave acceptance pending.
 
+Before editing, establish the [theorem inventory](audit.md#theorem-coverage) and
+baseline measurements required for the declared scope. A named local repair
+uses its affected scope; a full cleanup retains individual coverage of all
+in-scope theorems, including unchanged ones. Preserve baseline inputs rather
+than reconstructing improvement counts from an implementation summary.
+
 ## Transform by mathematical contract
 
 Choose the relevant transformation, not every step below:
@@ -87,6 +93,13 @@ and update dependent tasks before expanding. If the original mathematics appears
 wrong, stop that dependent transformation and open a separate correction or
 intent investigation. Continue independent authorized work.
 
+Keep [theorem review records](../references/records.md#theorem-review) current as
+the unit changes. Map moved, renamed, split, merged, and removed declarations to
+their inventory identities; add new helpers for both checks. Mark affected
+reviews stale when definitions, instances, dependencies, or available replacement
+APIs change, even if a theorem's text does not. Refresh those reviews before
+claiming their coverage is complete; reuse evidence whose inputs remain valid.
+
 ## Review and integrate
 
 Run the task's acceptance checks using [Verify](verify.md), including the
@@ -105,10 +118,18 @@ the combined candidate again when integration changes inputs. Keep the final
 candidate free of temporary exploratory code and new proof holes. Never discard
 the user's edits to obtain a clean status.
 
+Record each [verified improvement](../references/records.md#verified-improvement)
+with its original/final declarations and checks. Count assumption removals and
+Mathlib replacements only when the corresponding change is verified, integrated,
+and retained in the final candidate. Keep candidates, unverified patches, and
+local reuse separate; adjust totals after reversions or overlapping repairs.
+
 ## Deliver
 
 Use [Report](report.md) to explain the observed benefit and how consumers use the
-result, selecting visuals only when they help communicate the actual change.
+result, including its numerical summary and selecting visuals only when they
+help communicate the actual change. Reconcile final theorem coverage using
+[Verify](verify.md#reconcile-theorem-coverage) before claiming a full cleanup.
 
 Return the reviewed patch, task state, old-to-new declarations/modules, check
 records, observed improvement, and unresolved findings. Keep optional upstream

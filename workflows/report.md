@@ -13,9 +13,10 @@ may benefit from a visual comparison and a concrete consumer example. An audit
 can explain findings and coverage without proposing a new architecture.
 
 Choose the order, length, and medium accordingly. There is no required report
-layout, chart set, or minimum number of visuals. Similar work can reuse a good
-explanation; different work should not be forced into the same presentation.
-Use visuals when they make a material relationship or change easier to inspect.
+layout, chart set, or minimum number of visuals. Include the numerical summary
+below; a small task can keep it inline. Similar work can reuse a good explanation;
+different work should not be forced into the same presentation. Use visuals when
+they make a material relationship or change easier to inspect.
 
 The following are options, not required sections or claims about the target:
 
@@ -55,6 +56,35 @@ Keep proposed organization and expected benefits visibly distinct from observed
 improvements. An audit-only or planning-only report cannot claim repairs were
 performed. A partially verified repair keeps its pending acceptance visible.
 
+## Show the measured result
+
+Every run or checkpoint includes a compact numerical summary using the
+[measurement definitions](../references/records.md#measurements). Give the scope,
+baseline/current snapshots, and links to the authoritative records. Include:
+
+- Theorem census sizes and reviewed/total counts for assumptions and reuse,
+  with additions/removals, stale/unreviewed coverage, and completeness limits.
+- Verified assumptions removed and distinct baseline theorems improved.
+- Mathlib candidates found, adapters verified, and replacements integrated;
+  show deleted redundancies and retained interfaces with delegated proofs
+  separately. Keep local reuse in its own row.
+- Remaining confirmed issues, unresolved candidates, and justified retentions.
+- Lean lines, files, and source directories before/after with deltas; mapped
+  moves/renames, splits/merges, and newly introduced helpers where applicable.
+
+Aggregate [verified improvement records](../references/records.md#verified-improvement),
+not worker success messages or the number of edits attempted. Each completed
+repair total must be traceable to the actual before/after change, checks, and
+final integration. Show zero when a count is known to be zero; use `unavailable`
+or `not assessed` when evidence is missing, with the reason. An audit or plan can
+report findings and zero implemented changes without implying a failed cleanup.
+Small scoped work need not measure unrelated parts of the repository.
+
+Explain the practical benefit alongside the numbers. Smaller code or fewer files
+can describe a refactor without proving better mathematics. Report benchmark
+flag-rate changes only when an actual comparable evaluation was run, with its
+protocol and cohort boundaries visible; do not infer them from repair counts.
+
 ## Retain useful evidence early
 
 At baseline or planning time, identify any comparison that would explain the
@@ -68,12 +98,13 @@ and final values or extraction outputs needed to reproduce the comparison.
 For migrations, retain mappings across moves, splits, merges, and replacements
 when they matter to the explanation; filename similarity alone is insufficient.
 
-Select evidence proportionately. Reuse valid checks and collect extra measures
-only when they support a useful explanation within the run's resource limits.
-If a baseline was not captured, recover it from a preserved snapshot when
-practical, or state that the comparison is unavailable. Keep a useful qualitative
-explanation when quantitative evidence is missing. Never invent measurements,
-timestamps, consumers, or intermediate states to complete a visual story.
+Capture the summary's baseline measures early. Reuse valid checks and collect
+extra measures only when they support a useful explanation within the run's
+resource limits. If a baseline was not captured, recover it from a preserved
+snapshot when practical, or state that the comparison is unavailable. Keep a
+useful qualitative explanation when quantitative evidence is missing. Never
+invent measurements, timestamps, consumers, or intermediate states to complete
+a visual story.
 
 ## Construct a fitting visual
 

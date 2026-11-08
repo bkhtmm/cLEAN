@@ -38,8 +38,10 @@ separate design reports, and a campaign ledger are for work that needs them.
 The same preservation and acceptance requirements still apply.
 
 For user-facing handoffs, use [Report](workflows/report.md) to choose a useful
-explanation and any supporting visuals. Identify useful baseline evidence early;
-scale the presentation to the work and the user's requested format.
+explanation and any supporting visuals. Every run reports numerical coverage,
+verified changes, and available before/after measurements from the
+[run records](references/records.md). Capture baseline inputs before editing;
+a small job can keep its records and summary inline.
 
 ## Choose persistence
 
@@ -60,9 +62,14 @@ over defaults, and a resumed run retains its recorded mode until changed.
 ## Review quality
 
 Read [Shared review rules](rubrics/_common.md) whenever judging quality. Use the
-following angles where relevant. A whole-repository audit inventories every
-angle, but can inspect representative areas deeply if it labels the coverage.
-A focused review loads only applicable angles.
+following angles where relevant. Broad library audits and cleanups require
+[individual theorem coverage](workflows/audit.md#theorem-coverage) for removable
+hypotheses and existing Mathlib/local replacements throughout the declared scope,
+in bounded as well as campaign mode. Other angles can use representative deep
+inspection when the coverage is labeled. A user-requested sample retains its
+explicit limits; resource limits leave coverage incomplete rather than silently
+converting a full review into sampling. Focused repairs and patch verification
+review the changed and affected declarations without expanding to the repository.
 
 | Angle | Decision |
 | --- | --- |
@@ -108,9 +115,10 @@ scope. Avoid imposing a new folder taxonomy or a numerical quality score.
 
 **Make evidence durable and proportionate.** Use the user's working location or
 an identified run directory. The [record formats](references/records.md) define
-findings, tasks, checks, and handoff state. Small jobs can keep them in one file;
-large campaigns should keep resumable shared records. Reuse evidence only when
-its inputs still match. Observe resource limits and report actual coverage.
+theorem coverage, findings, tasks, checks, verified improvements, and measurements.
+Small jobs can keep them in one file; large campaigns should keep resumable shared
+records. Reuse evidence only when its inputs still match. Observe resource limits
+and report actual coverage.
 
 **Finish honestly.** Deliver reviewable changes, verification results, migration
 notes, and remaining findings. Separate audit completion, task acceptance, and

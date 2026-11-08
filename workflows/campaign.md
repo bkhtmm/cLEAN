@@ -27,6 +27,13 @@ Do not silently reduce a thorough-review request to a sample, or imply every
 statement was checked when only selected chains were inspected. Excluded areas
 must have an explicit scope reason; "not yet looked at" is a coverage gap.
 
+Apply [individual theorem coverage](audit.md#theorem-coverage) to assumption
+removal and Mathlib/local reuse within that scope. Track each inventoried
+theorem's two review results, including private and unchanged declarations.
+Representative chains may guide the order of work and the depth of other
+angles; they do not replace these individual results unless the user requested
+a sampled review. A resource limit leaves the uncovered portion explicit.
+
 Keep a frontier of ready repairs, concrete investigations, and unreviewed areas.
 A candidate finding needs investigation before speculative edits. Select the
 next action by mathematical importance, confidence, dependencies, consumer value,
@@ -50,6 +57,11 @@ coverage does not require changing its code.
    mandate and available resources. When the backlog is empty, inspect uncovered
    areas or attempt closure rather than automatically finishing.
 
+Maintain the theorem inventory and linked improvement records after each
+integrated batch. New helpers need both reviews; migrations preserve identities,
+and changed context reopens affected reviews. Totals describe verified changes
+retained in the current candidate, not cumulative worker activity.
+
 The discovery step is targeted, not a demand to reaudit the whole repository
 after each small edit. No fixed number of sweeps or minimum change count is
 required. Searches and reviews that find no issue are useful evidence. Repeating
@@ -71,6 +83,12 @@ The closure review asks:
 
 - Has each in-scope area and relevant angle reached the recorded inspection
   depth, with no meaningful unreviewed or stale coverage hidden by sampling?
+- Does [final theorem reconciliation](verify.md#reconcile-theorem-coverage)
+  account for every current theorem and every baseline removal or migration in
+  the declared review set, with current individual results for both checks?
+  For a user-requested sample, reconcile that cohort and report the wider
+  population separately; completing the sample does not claim full-library
+  coverage.
 - Are confirmed actionable findings addressed, with remaining candidates
   investigated or given an evidence-based disposition? A speculative preference
   can be withdrawn; deferring an actionable issue does not resolve it.
@@ -80,11 +98,14 @@ The closure review asks:
   material work within scope? If so, put it on the frontier and continue.
 
 Ground closure in final source and the declaration/API coverage evidence, not
-only the completed plan or implementation summary. Recheck selected contracts
-and dependency replacements, including relevant unchanged code outside the
-initial findings. Challenge retention reasons that preserved duplicated proofs
-or unnecessary requirements. No new finding is required; disclose sampling and
-unreviewed scope instead of inferring completeness from an empty backlog.
+only the completed plan or implementation summary. Refresh missing or stale
+theorem reviews, including relevant unchanged code outside the initial findings,
+then challenge important contract and dependency-replacement decisions. Check
+retention reasons for duplicated proofs or unnecessary requirements. No new
+finding is required; disclose authorized sampling and unreviewed scope instead
+of inferring completeness from an empty backlog. Complete review coverage does
+not itself resolve candidates or accept repairs, and closure does not require
+zero judge flags or unrelated new mathematical development.
 
 Complete only when closure supports these conditions. State the achieved scope
 and depth and remaining uncertainty; this is not proof of a globally optimal
@@ -105,8 +126,9 @@ coverage gaps, pending checks, reasons, and exact next action as an incomplete
 checkpoint. Do not mark the campaign complete just to end the turn.
 
 Use [Report](report.md) for a final report or user-facing checkpoint. Select a
-useful explanation of the integrated work and coverage; show history only when
-recorded events support it, keeping unresolved work visible.
+useful explanation of the integrated work and coverage, with its numerical
+summary of verified improvements and baseline/final scale measurements. Show
+history only when recorded events support it, keeping unresolved work visible.
 
 On continuation, load the current run state, verify snapshot and patch identity,
 refresh affected stale evidence, and take the recorded next useful action. Keep
