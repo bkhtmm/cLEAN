@@ -2,7 +2,7 @@
 name: clean
 description: Audit and refactor existing Lean 4 mathematical repositories for reuse, maintainability, faithful statements, and coherent APIs and module boundaries. Use for formalization cleanup, repository reorganization, or evidence-backed quality assessment; not for unrelated filesystem cleaning or proving a new mathematical project from scratch.
 metadata:
-  version: "0.3.2-draft"
+  version: "4"
 ---
 
 # cLEAN
