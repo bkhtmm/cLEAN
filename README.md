@@ -1,18 +1,28 @@
 # cLEAN
 
-An agent skill for turning an existing Lean 4 formalization into a mathematical
-library that is easier to understand, maintain, and reuse.
+**A framework for agent-assisted Lean library engineering.**
 
-cLEAN audits a repository, designs a dependency-aware cleanup, applies bounded
-refactors, and checks the result. It supports a single agent or an authorized
-team of agents. It is a set of instructions and handoff formats, not a new proof
-assistant or a hosted orchestration service.
+cLEAN guides coding agents through auditing and refactoring existing Lean 4
+formalizations to make them easier to understand, maintain, and reuse.
+
+The framework combines mathematical review, dependency-aware planning, bounded
+refactoring, and verification through the project's Lean toolchain. Its workflows
+examine theorem assumptions, opportunities to reuse Mathlib and local results,
+public APIs, module structure, proof quality, and documentation.
+
+cLEAN supports focused repairs and broader repository campaigns, run by a single
+agent or an authorized team. It produces reviewable changes, migration notes,
+and evidence of the improvements and checks performed.
 
 **Status:** version `4`, with individual theorem review and measured cleanup
 reports. The workflow is ready for pilots; it is not a claim of demonstrated
 autonomous reliability on large libraries.
 
-## Use it
+## Installation
+
+cLEAN is distributed as a portable agent skill. Its entry point, `SKILL.md`,
+connects the workflows, review rubrics, and evidence and handoff formats. The
+framework runs through your existing coding agent and Lean toolchain.
 
 Copy this folder into your agent's skill directory under the name `clean`,
 keeping `SKILL.md` and its supporting folders together. Use the installation
@@ -37,7 +47,9 @@ The target repository needs its own Lean toolchain and pinned dependencies for
 executable checks. cLEAN can inspect and plan without a working compiler, but
 must report unavailable checks and cannot certify an unbuilt repair.
 
-Example requests, replacing paths and limits with your own:
+## Example requests
+
+Replace paths and limits in these examples with your own:
 
 ```text
 Use $clean to audit /path/to/formalization. Do not edit its source.
