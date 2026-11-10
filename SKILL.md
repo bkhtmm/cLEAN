@@ -24,6 +24,7 @@ instructions; this skill supplies a workflow, not authority to expand the task.
 | Design a cleanup or reorganization | [Planning](workflows/planning.md), using current audit evidence |
 | Apply a refactor or clean up the repository | Audit and plan as needed, then [Repair](workflows/repair.md) and [Verify](workflows/verify.md) |
 | Check an existing patch | [Verify](workflows/verify.md), refreshing only affected baseline and review evidence |
+| Prepare or contribute selected mathematics to Tau Ceti | Add [Contribute to Tau Ceti](workflows/contribute-tauceti.md) when explicitly requested |
 | Run with multiple agents | Add [Coordinate](workflows/coordinate.md) when delegation is available and authorized |
 
 An end-to-end cleanup request authorizes the necessary local audit, planning,
@@ -31,6 +32,10 @@ repair, and checks within its scope. Continue between those stages without
 asking for approval of routine implementation choices. An audit or plan alone
 does not authorize source edits. Publishing, upstream submissions, and service
 integrations require their own authorization; this skill needs none of them.
+
+Tau Ceti contribution work is optional. Follow the requested preparation or
+submission scope; ordinary cleanup does not select it. Prepare roadmap drafts
+locally for human review and submission.
 
 For a small, clearly named repair, keep the baseline and plan inline and read
 only the relevant rubric and repair/verification sections. Broad inventories,
