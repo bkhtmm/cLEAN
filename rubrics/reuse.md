@@ -5,10 +5,10 @@ library builds effectively on existing mathematics and exposes genuinely shared
 reasoning. The goal is a useful mathematical interface with less duplicated
 maintenance, not the smallest possible collection of declarations.
 
-For `objective: inclusive-duplication`, also apply [Inclusive duplication](../workflows/inclusive-duplication.md).
-That objective treats confirmed statement overlap as removal work even when a
-useful wrapper already uses Mathlib; its retention rules override the ordinary
-interface-retention guidance below.
+Apply [Inclusive duplication](../workflows/inclusive-duplication.md) by default.
+Confirmed statement overlap is removal work even when a useful wrapper already
+uses Mathlib; its retention rules override the optional interface-retention
+guidance below. No special objective wording is needed in the user's request.
 
 ## Locate the sources to search
 
@@ -129,9 +129,11 @@ factor two short expressions that express different operations.
 
 ## Decide whether keeping the declaration serves a purpose
 
-The following is the default maintainability policy. Under the inclusive
-objective, use the [removal and exception rules](../workflows/inclusive-duplication.md#remove-covered-declarations-and-migrate-consumers)
-and record overlap separately from whether the proof already delegates.
+The interface-retention policy below applies only when the user explicitly
+selects `objective: maintainability`. By default, use the
+[removal and exception rules](../workflows/inclusive-duplication.md#remove-covered-declarations-and-migrate-consumers)
+and treat API roles as consumer-migration work. Record overlap separately from
+whether the proof already delegates.
 
 Successful derivation from existing mathematics is necessary evidence for many
 reuse proposals, but it is not sufficient reason to delete a public declaration.
@@ -169,7 +171,9 @@ Label probes created for the review separately from pre-existing consumers.
 
 ## Examples of the distinction
 
-These examples illustrate judgments, not findings about the target:
+These examples illustrate the optional maintainability policy, not findings
+about the target. Under the default inclusive policy, a confirmed covered
+wrapper remains removal work even in the useful-interface example:
 
 - **Actionable duplication:** a local proof reconstructs a located dependency
   result and a demonstrated adapter removes duplicated maintenance. Retain the

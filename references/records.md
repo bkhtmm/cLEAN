@@ -18,10 +18,10 @@ entry for the final accepted state.
   or content hashes of the instruction files used. The version label alone may
   not distinguish changing drafts. Record the executing model when available.
 - **Mandate:** requested operation (audit, plan, refactor, or verify), persistence
-  mode (`bounded` or `campaign`), objective (`maintainability` or
-  `inclusive-duplication`), scope and review depth/exclusions, main claims,
-  effective compatibility and axiom policies, pinned Lean/dependency versions,
-  and resource limits.
+  mode (`bounded` or `campaign`), objective (`inclusive-duplication` by default,
+  or explicitly selected `maintainability`), scope and review depth/exclusions,
+  main claims, effective compatibility and axiom policies, pinned Lean/dependency
+  versions, and resource limits.
 - **Evidence:** baseline commands and failures, preserved specification location,
   mathematical sources, coverage by module and angle, and unperformed checks.
   Keep the [theorem review](#theorem-review) inventory and individual outcomes;

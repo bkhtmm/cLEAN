@@ -106,7 +106,7 @@ finding is required; disclose authorized sampling and unreviewed scope instead
 of inferring completeness from an empty backlog. Complete review coverage does
 not itself resolve candidates or accept repairs. For inclusive duplication, also
 apply its [metric and completion rules](inclusive-duplication.md#measure-and-finish-against-the-objective).
-Ordinary maintainability closure has no judge-score target; any requested score
+Explicit maintainability closure has no judge-score target; any requested score
 target remains explicit. Neither objective requires unrelated new mathematics.
 
 Complete only when closure supports these conditions. State the achieved scope

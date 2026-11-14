@@ -51,18 +51,23 @@ a small job can keep its records and summary inline.
 
 ## Choose the objective
 
-Record `objective: maintainability` by default. When the user explicitly asks to
-reduce an inclusive Mathlib duplication metric, record
-`objective: inclusive-duplication` and read [Inclusive duplication](workflows/inclusive-duplication.md).
-That objective prefers removing covered local declarations and migrating their
-consumers to Mathlib, including useful wrappers already delegating their proofs.
-Its retention and acceptance rules take precedence over general advice to keep
+Record `objective: inclusive-duplication` by default and read
+[Inclusive duplication](workflows/inclusive-duplication.md) when reviewing reuse.
+Ordinary cLEAN use follows this policy without special prompt wording: prefer
+removing confirmed Mathlib-covered local declarations and migrating their
+consumers, including useful wrappers already delegating their proofs. Its
+retention and acceptance rules take precedence over general advice to keep
 specialized interfaces. Preserve mathematical claims and honor explicit project
 compatibility requirements; record necessary retained matches as exceptions.
 
+Use `objective: maintainability` only when the user explicitly selects the
+alternative policy of retaining useful covered interfaces. That changes the
+retention decision, not the requirement to search for and document overlap.
+
 The objective is independent of the operation and persistence mode: an audit
 still makes no source edits, and bounded work does not become a campaign.
-Ordinary reuse requests do not implicitly select a benchmark objective.
+An actual judge-score claim still requires a comparable evaluation; when no
+judge is available, report verified deduplication and the measurement limit.
 
 ## Choose persistence
 

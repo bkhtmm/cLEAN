@@ -84,17 +84,16 @@ audit-only and plan-only requests leave target sources unchanged.
 
 ## Select the cleanup objective
 
-The default objective is `maintainability`: useful interfaces may remain while
-their proofs delegate to Mathlib. To reduce a judge metric that also flags those
-specializations, select `inclusive-duplication`:
+The default objective is `inclusive-duplication`: remove confirmed Mathlib-covered
+local declarations and migrate their consumers, including useful wrappers whose
+proofs already delegate to Mathlib. Ordinary `$clean` requests use this policy;
+no objective phrase is required:
 
 ```text
-Use $clean with objective: inclusive-duplication on /path/to/formalization.
-Reduce the inclusive Mathlib duplication metric using the frozen judge protocol
-at /path/to/judge. Remove confirmed covered local declarations, including
-wrappers already using Mathlib, and migrate their consumers. Preserve the main
-claims and dependency pins. Verify recovery of removed statements and report
-actual before/after flag counts, eligible counts, rates, and retained exceptions.
+Use $clean to refactor /path/to/formalization and deduplicate against Mathlib.
+Preserve the main claims and dependency pins. Verify recovery of removed
+statements and migrate affected consumers. Use the frozen judge protocol at
+/path/to/judge to report actual before/after counts, rates, and exceptions.
 ```
 
 The [inclusive workflow](workflows/inclusive-duplication.md) separates statement
@@ -102,7 +101,8 @@ overlap from duplicated proof implementation. Shortening a proof alone does not
 remove its statement's flag. Judge evaluation can be unavailable or noisy, so
 verified repairs and measured reduction are reported separately. This objective
 can be combined with bounded or campaign mode; audit/plan requests still make no
-source changes.
+source changes. If the user explicitly wants useful covered interfaces retained,
+they can select `objective: maintainability`; overlap must still be documented.
 
 ## Select bounded or campaign mode
 

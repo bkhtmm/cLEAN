@@ -38,8 +38,8 @@ Choose the relevant transformation, not every step below:
 
 - **Replace implementation:** locate the replacement in the pinned library,
   compare contracts, and demonstrate the adapter. Retain a public wrapper when
-  it supplies a real API, automation, or compatibility role under the ordinary
-  maintainability policy. For `objective: inclusive-duplication`, follow
+  it supplies a real API, automation, or compatibility role under an explicitly
+  selected maintainability policy. By default, follow
   [declaration removal and consumer migration](inclusive-duplication.md#remove-covered-declarations-and-migrate-consumers)
   instead; proof delegation alone does not resolve a covered statement.
 - **Extract a fact:** formulate the shared mathematical statement, give it its
