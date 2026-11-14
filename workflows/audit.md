@@ -22,6 +22,12 @@ Record:
 - The claimed main results, their locations, the definitions their statements use,
   and the sources or project documentation that describe the intended mathematics.
 
+Before reuse review, resolve the project's and pinned dependencies' searchable
+source roots using [reuse source discovery](../rubrics/reuse.md#locate-the-sources-to-search).
+Check source availability and dependency identity; a path in a manifest is not
+evidence that those sources were searched. Keep one source map for the run and
+refresh it when its inputs change.
+
 Before edits, capture the theorem inventory below and the baseline
 [measurements](../references/records.md#measurements). Preserve the counted source
 set, source snapshot, and counting method for the final comparison. An audit or
@@ -122,15 +128,20 @@ cannot claim full theorem coverage. This depth is independent of persistence mod
    actual binders and instances and ask which hypotheses can be removed entirely.
    Track weakening or broader abstraction separately. Use
    [reuse](../rubrics/reuse.md) to search pinned Mathlib and local mathematics for
-   replacements, recording the search boundary and the interface's purpose.
-   Examine the proof, definitions, relevant instances, and consumers as needed;
-   individual attention does not mean judging an isolated statement.
+   replacements, applying its declaration, proof-step, construction, and local
+   repetition searches where relevant. Link executed search evidence and record
+   the interface's purpose. Examine the proof, definitions, relevant instances,
+   and consumers as needed; individual attention does not mean judging an
+   isolated statement.
 3. **Return two individual outcomes.** For each ID, record assumption and reuse
    coverage separately, with a reason and evidence or a linked finding. Coherent
    file/API batches can share context and search evidence, but every theorem
    needs its own conclusion. A batch-complete message or file-level verdict
    cannot fill missing outcomes. No issue found means only within that review's
-   depth and search boundary; unresolved candidates remain visible.
+   depth and search boundary; unresolved candidates remain visible. A no-issue
+   outcome cannot close missing applicable searches or unavailable relevant
+   sources. Leave that reuse review unreviewed with its gap; report positive
+   findings supported by the evidence already obtained.
 4. **Investigate supported candidates.** Test concrete weaker signatures and
    replacement adapters in the pinned environment before accepting repairs.
    Record compiled checks separately from reviewer judgments. Useful wrappers

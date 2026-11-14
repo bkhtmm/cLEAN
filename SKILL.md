@@ -81,7 +81,7 @@ review the changed and affected declarations without expanding to the repository
 | [Correctness](rubrics/correctness.md) | Do statements and definitions express the intended mathematics? |
 | [Build health](rubrics/build-health.md) | Are Lean/Mathlib versions suitable for reuse, and do the scoped builds run without warnings? |
 | [Scope](rubrics/scope.md) | Does this change advance the requested cleanup while preserving claims? |
-| [Reuse](rubrics/reuse.md) | Can located mathematics replace duplicated implementation without losing a useful interface? |
+| [Reuse](rubrics/reuse.md) | Do executed searches of project and pinned dependency sources reveal reusable results, proof steps, or constructions? |
 | [API design](rubrics/api-design.md) | Can consumers use the objects through a coherent public interface? |
 | [Generality](rubrics/generality.md) | Are assumptions and abstractions at a useful, natural level? |
 | [Architecture](rubrics/architecture.md) | Do mathematical homes and imports separate foundations from proof machinery? |

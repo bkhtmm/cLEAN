@@ -5,33 +5,97 @@ library builds effectively on existing mathematics and exposes genuinely shared
 reasoning. The goal is a useful mathematical interface with less duplicated
 maintenance, not the smallest possible collection of declarations.
 
-## Choose the unit and search the available library
+## Locate the sources to search
 
-Inspect the declaration, its mathematical contract, its proof or construction,
-and its known consumers. Use the target's pinned dependencies. Distinguish a
-replacement available there from an upstream result that would require a
-separate dependency upgrade.
+Resolve paths against the target Lean checkout, not this skill's folder. Read
+`lean-toolchain`, `lake-manifest.json`, and `lakefile.lean` or `lakefile.toml`,
+including effective dependency overrides. Record the actual searchable roots:
 
-Look for:
+- **Project:** the project's Lean source directories, including local helpers
+  outside the file being reviewed. A narrow edit scope does not limit replacement
+  discovery to that file; keep source changes within the authorized scope.
+- **Mathlib:** normally `<target>/.lake/packages/mathlib/Mathlib/`. When reviewing
+  Mathlib itself, use its own `Mathlib/` directory. Resolve custom package/source
+  directories, path dependencies, and symlinks rather than assuming this default.
+- **Other dependencies:** relevant package source directories. Include the matching
+  Lean core or Std sources when the operation belongs there; these may be under
+  the pinned toolchain's `src/lean/Init/` and `src/lean/Std/` directories.
 
-- Existing results with matching or appropriately more general statements.
-  Search mathematical names, hypotheses, conclusions, relevant namespaces, and
-  nearby variants rather than relying on identifier similarity alone.
-- Existing lemmas that replace substantial repeated steps inside a proof.
-- Repeated constructions that could use a located library combinator or API.
-- Substantial repeated reasoning across consumers that could share a lemma or
-  construction with a natural mathematical contract.
+Verify that the roots contain readable `.lean` sources and identify the dependency
+revisions and relevant local modifications actually searched. A manifest entry
+alone does not establish that the local checkout matches it. If needed, obtain
+the exact pinned dependency sources in an isolated run directory. Do not run
+`lake update` or change the target's dependency files to enable a reuse search.
+Record missing or mismatched sources as a review limit. Online documentation or
+search services can supply leads; validate them against the pinned sources.
 
-Start from the current proof's dependencies and wrappers, then search statements
-and constructions by their underlying mathematical operation. A project-specific
-theorem may be an instance of general algebraic, order-theoretic, or categorical
-infrastructure outside its subject directory. Search general constructions and
-universal properties as well as similarly named lemmas. Inspect promising sources
-and test the adapter before accepting a replacement; reject circular matches.
-Use the pinned Mathlib and other dependencies. Record the meaningful search
-boundary and reason a promising match does or does not fit. No fixed query count
-or exhaustive internet search is required; an unsuccessful bounded search does
-not establish that no replacement exists.
+## Execute searches for each applicable kind of reuse
+
+Use `rg`, `grep`, or an equivalent code-search tool. Reading the target or recalling
+a familiar theorem does not substitute for searching available sources. Search
+both project and relevant dependency sources; a useful replacement need not be
+in the current imports or the same subject directory.
+
+For a conventional layout, these are example commands from the target checkout.
+Replace `MyProject` and the dependency path with the resolved roots; the example
+identifiers illustrate a constructor search, not required queries for every run.
+
+```sh
+rg --files --hidden --no-ignore -g '*.lean' MyProject .lake/packages/mathlib/Mathlib
+rg -n --hidden --no-ignore -g '*.lean' -e 'ofSupportFinite' -e 'onFinset' MyProject .lake/packages/mathlib/Mathlib
+```
+
+The file listing checks what will be searched. A plain recursive search from `.`
+can skip hidden or ignored dependency sources. Search explicit source roots to
+avoid build artifacts and unrelated packages; resolve linked source directories
+explicitly if the search tool does not traverse them. With another tool, check
+its file coverage rather than copying `rg` flags.
+
+Apply these searches to the declared review scope, including private helpers and
+unchanged code in a broad cleanup:
+
+- **Each declaration:** search for the same mathematical content, including a
+  more general result specialized to the target. Short declarations still count.
+- **Each proof with substantial intermediate reasoning:** search the final goal
+  and its key intermediate claims separately. In particular, investigate manual
+  image/preimage calculations, finite-support bookkeeping, and `Fin` case splits.
+- **Each definition assembled from low-level pieces:** search for an existing
+  constructor, combinator, or general construction that performs the assembly.
+- **Each substantial proof or construction block:** search project sources for
+  distinctive operations and argument patterns to locate repeated reasoning.
+  Also inspect restated public facts, bundles of existing facts, and proofs
+  assembled from consequences already supplied by component simplification lemmas.
+
+Start with the proof's dependencies and underlying operations. Search bare name
+fragments as well as qualified identifiers: namespaces may be declared separately,
+and statements may span lines or use different notation. If an initial search
+finds no fit, investigate equivalent formulations, symmetry/duality, bridging
+lemmas, and the more general algebraic, order-theoretic, or categorical API.
+Inspect promising declarations in context, including section variables and
+instances; a hit list or a similar name does not establish a match.
+
+When useful and available in the pinned environment, supplement source searches
+with `exact?` or `apply?` in an isolated probe. These search its loaded environment,
+not all unimported dependency sources. Generated declarations may also need Lean
+inspection rather than a literal name match. Reject the reviewed declaration
+itself and any candidate whose proof depends on it; importing the target into a
+probe can rediscover the very theorem being reviewed. Check proposed imports for
+dependency cycles before treating a local result as an available replacement.
+
+## Make search completion visible
+
+Link the source roots/revisions, executed queries, relevant hits or explicit
+no-hit results, and why promising candidates fit or fail. Shared searches can
+support a coherent group of declarations; explain which checks they cover.
+An error, an empty source tree, or truncated output is not a completed negative
+search. Narrow or repair the search, or leave the affected review incomplete.
+
+A no-issue outcome requires the applicable searches above and inspection of
+plausible candidates. If time or missing sources prevent that, record the gap
+rather than marking reuse fully reviewed. A positive finding can still stand on
+its located evidence. No fixed query quota or exhaustive search is required;
+state the meaningful boundary and unresolved leads. An unsuccessful bounded
+search does not establish that no replacement exists.
 
 ## Establish that a replacement actually fits
 

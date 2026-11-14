@@ -25,6 +25,10 @@ entry for the final accepted state.
   mathematical sources, coverage by module and angle, and unperformed checks.
   Keep the [theorem review](#theorem-review) inventory and individual outcomes;
   broader area/API summaries supplement rather than replace them.
+- **Reuse sources:** resolved project and relevant dependency source roots, their
+  revisions and relevant local modifications, and unavailable or mismatched
+  sources. Record the files/search roots actually accessible to the search tool;
+  distinguish the target checkout from the skill directory and run artifacts.
 - **Measurements:** baseline/final values using the [counting rules](#measurements),
   with scope, snapshot, method, exclusions, and source/check links. Link verified
   improvements and report locations. Extra graph extracts and observed event
@@ -56,8 +60,12 @@ Each declaration needs:
   deletion from weakening; link findings, justified retentions, and checked
   weaker signatures where applicable.
 - **Reuse review:** the same separate coverage/outcome/evidence fields, including
-  located Mathlib/local candidates, dependency search boundary, contract fit,
-  adapter checks, and any reason to retain the public interface.
+  links to the source map and executed queries with relevant hits or explicit
+  no-hit results, applicable search kinds and remaining gaps, located Mathlib/local
+  candidates, contract fit, adapter checks, and any reason to retain the public
+  interface. Shared search logs may cover several declarations when mapped to
+  their checks; a negative outcome needs evidence of the applicable searches,
+  not just an absence of candidates.
 - **Validity:** reviewed snapshot, relevant definition/instance/dependency
   context, reviewer or task, and why prior evidence remains valid if reused.
   Reopen affected checks when their inputs or available replacement APIs change;
