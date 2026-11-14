@@ -85,6 +85,13 @@ can describe a refactor without proving better mathematics. Report benchmark
 flag-rate changes only when an actual comparable evaluation was run, with its
 protocol and cohort boundaries visible; do not infer them from repair counts.
 
+For `objective: inclusive-duplication`, lead with whether the requested metric
+target was met using the [inclusive records](../references/records.md#inclusive-duplication-records).
+Show actual baseline/final flags, eligible counts and rates, verified covered
+declarations removed, and remaining retained matches with exceptions. Show
+proof-step reuse separately. If the judge was not run or the score did not
+improve, state that clearly even when preservation and builds passed.
+
 ## Retain useful evidence early
 
 At baseline or planning time, identify any comparison that would explain the

@@ -56,6 +56,7 @@ Choose evidence appropriate to the change:
 | Proof body only | The same elaborated statement and unchanged referenced definition meanings, with the replacement proof checked and its axioms inspected as appropriate |
 | Move or rename | Old-to-new mapping, corresponding statements/definitions, migrated consumers, and relevant namespace/attribute behavior |
 | Generalized theorem | A checked derivation of the original quantified claim through the new theorem, with no added assumptions |
+| Removed Mathlib-covered declaration | A checked recovery of the original quantified claim from the located replacement, preserved definition meanings, migrated consumers/automation, and a documented old-to-new use mapping; retaining the old declaration name is not required |
 | Replaced definition or representation | A checked equality, equivalence, isomorphism, or other mathematically appropriate relation to the preserved object, plus transport of the claimed properties and consumer behavior that matters |
 | Restructured main theorem API | Checked recovery of every affected original main claim through the new API, retaining its intended objects and permitted assumptions |
 
@@ -147,6 +148,12 @@ build caches is fine. Force a fresh or targeted rebuild when stale artifacts,
 removed modules, or changed build configuration could mask missing coverage.
 
 ## Verify the claimed improvement
+
+For `objective: inclusive-duplication`, apply [metric verification](inclusive-duplication.md#measure-and-finish-against-the-objective)
+as well as the ordinary checks. Verify deletion and recovery independently of
+judge output. An eligible retained wrapper remains a known match even after its
+proof is shortened. Report measured reduction only from comparable actual judge
+runs; unavailable evaluation leaves that part of acceptance unverified.
 
 Revisit the relevant rubrics and the concrete acceptance condition:
 

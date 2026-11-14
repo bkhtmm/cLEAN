@@ -17,6 +17,9 @@ Record:
   If Git is unavailable, identify the source snapshot without inventing a revision.
 - The requested modules, mathematical area, or whole-repository scope; available
   time or compute limits; and the actual coverage of this audit.
+- The [selected objective](../SKILL.md#choose-the-objective). For inclusive
+  duplication, establish the judge protocol and baseline population using
+  [Inclusive duplication](inclusive-duplication.md#establish-the-metric-and-baseline).
 - The pinned Lean toolchain and dependency versions, the project's build targets,
   existing checks, and any stated axiom and compatibility policies.
 - The claimed main results, their locations, the definitions their statements use,
@@ -96,7 +99,9 @@ Do not confuse these cases:
 
 - A simple lemma can be faithful and useful. Simplicity alone is not vacuity.
 - A specialization, wrapper, or repeated statement may serve a real consumer.
-  Identify that role before calling it duplication.
+  Identify that role. Under the maintainability objective it may justify
+  retention; under inclusive duplication it defines migration work or a concrete
+  exception, not exemption from the judge's statement-overlap criterion.
 - A generally useful fact may need relocation and export rather than becoming
   private. Conversely, a proof-specific helper does not become general by moving
   it into a generically named module.
@@ -142,12 +147,17 @@ cannot claim full theorem coverage. This depth is independent of persistence mod
    outcome cannot close missing applicable searches or unavailable relevant
    sources. Leave that reuse review unreviewed with its gap; report positive
    findings supported by the evidence already obtained.
+   For the inclusive objective, also record statement overlap, current proof
+   delegation, and removal/exception disposition for every eligible theorem;
+   do not close a match merely because its proof already invokes Mathlib.
 4. **Investigate supported candidates.** Test concrete weaker signatures and
    replacement adapters in the pinned environment before accepting repairs.
-   Record compiled checks separately from reviewer judgments. Useful wrappers
-   may retain their interface while delegating the proof; substantial unproved
-   generalizations remain investigations or deferred work. There is no zero-flag
-   target and no requirement to invent a change for every reviewed theorem.
+   Record compiled checks separately from reviewer judgments. Under ordinary
+   maintainability, useful wrappers may retain their interface while delegating
+   the proof. Under inclusive duplication, apply the removal and exception rules
+   instead. Substantial unproved generalizations remain investigations or deferred
+   work. Judge reduction or a zero-flag target applies only when requested; no
+   objective requires inventing an unsupported change for every theorem.
 5. **Maintain and reconcile coverage.** Use the inventory during cleanup and
    finish unreviewed entries before final verification. Map moves, renames,
    removals, splits, and merges; add new helper theorems. Reopen affected outcomes

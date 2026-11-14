@@ -18,7 +18,8 @@ entry for the final accepted state.
   or content hashes of the instruction files used. The version label alone may
   not distinguish changing drafts. Record the executing model when available.
 - **Mandate:** requested operation (audit, plan, refactor, or verify), persistence
-  mode (`bounded` or `campaign`), scope and review depth/exclusions, main claims,
+  mode (`bounded` or `campaign`), objective (`maintainability` or
+  `inclusive-duplication`), scope and review depth/exclusions, main claims,
   effective compatibility and axiom policies, pinned Lean/dependency versions,
   and resource limits.
 - **Evidence:** baseline commands and failures, preserved specification location,
@@ -130,6 +131,29 @@ they do not establish a change in benchmark flag rates. An optional before/after
 judge evaluation records its model/protocol, pass count, sampling, and denominator;
 compare matched theorem cohorts and show additions/removals separately. Keep
 judge flags separate from Lean-verified findings and repairs.
+
+### Inclusive duplication records
+
+For [the inclusive objective](../workflows/inclusive-duplication.md), extend the
+same run and theorem records rather than creating a separate inventory:
+
+- **Protocol/population:** judge rubric/prompt/schema identities, source filters,
+  allowed dependency revisions, model/settings/pass count, baseline/final source
+  identities, eligible counts, and stable mappings to the cLEAN inventory.
+- **Per theorem:** actual judge verdict versus manual classification, exact
+  Mathlib match, contract fit and derivation, compile check, existing direct or
+  indirect delegation versus independent proof, and removal/retained-exception/
+  unresolved/no-match disposition. An exception names its concrete constraint;
+  it remains a known covered statement, not a negative search result.
+- **Removal evidence:** replacement-use mapping, original-claim recovery witness,
+  migrated consumers and automation, integration checks, and final candidate.
+  Proof-only improvements are recorded separately from declaration removals.
+- **Metric result:** actual flag counts, eligible counts, and rates before/after;
+  added/removed/matched populations; verdict transitions on surviving matched
+  declarations; remaining exceptions/candidates; protocol differences and flips
+  on unchanged statements. Separate verified changes from measured score changes.
+  Record evaluation as unavailable when it could not run, and the target as unmet
+  when measured results do not satisfy it. Do not relabel removals as `none_found`.
 
 ## Campaign state
 

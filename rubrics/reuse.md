@@ -5,6 +5,11 @@ library builds effectively on existing mathematics and exposes genuinely shared
 reasoning. The goal is a useful mathematical interface with less duplicated
 maintenance, not the smallest possible collection of declarations.
 
+For `objective: inclusive-duplication`, also apply [Inclusive duplication](../workflows/inclusive-duplication.md).
+That objective treats confirmed statement overlap as removal work even when a
+useful wrapper already uses Mathlib; its retention rules override the ordinary
+interface-retention guidance below.
+
 ## Locate the sources to search
 
 Resolve paths against the target Lean checkout, not this skill's folder. Read
@@ -123,6 +128,10 @@ abstraction and its dependencies. Do not introduce a generic helper merely to
 factor two short expressions that express different operations.
 
 ## Decide whether keeping the declaration serves a purpose
+
+The following is the default maintainability policy. Under the inclusive
+objective, use the [removal and exception rules](../workflows/inclusive-duplication.md#remove-covered-declarations-and-migrate-consumers)
+and record overlap separately from whether the proof already delegates.
 
 Successful derivation from existing mathematics is necessary evidence for many
 reuse proposals, but it is not sufficient reason to delete a public declaration.

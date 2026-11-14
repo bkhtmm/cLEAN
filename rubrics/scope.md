@@ -11,6 +11,11 @@ internal reference is insufficient to delete a public result. Consider its
 stated library purpose, examples, external compatibility obligations, and the
 limits of the consumer search.
 
+When the user selects [inclusive duplication](../workflows/inclusive-duplication.md),
+removing a confirmed Mathlib-covered interface and migrating its consumers is an
+intended scope change, including for a useful wrapper. Preserve its mathematical
+claim through a checked replacement and honor explicit compatibility constraints.
+
 New supporting lemmas and modest generalizations belong in cleanup when they
 enable the identified repair or reusable interface. Do not expand into an
 unrelated formalization campaign because a missing theory looks interesting.

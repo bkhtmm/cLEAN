@@ -23,6 +23,7 @@ instructions; this skill supplies a workflow, not authority to expand the task.
 | Assess or review quality | [Audit](workflows/audit.md); leave target sources unchanged |
 | Design a cleanup or reorganization | [Planning](workflows/planning.md), using current audit evidence |
 | Apply a refactor or clean up the repository | Audit and plan as needed, then [Repair](workflows/repair.md) and [Verify](workflows/verify.md) |
+| Reduce an inclusive Mathlib duplication judge metric | Add the [inclusive-duplication objective](workflows/inclusive-duplication.md) to the requested operation |
 | Check an existing patch | [Verify](workflows/verify.md), refreshing only affected baseline and review evidence |
 | Prepare or contribute selected mathematics to Tau Ceti | Add [Contribute to Tau Ceti](workflows/contribute-tauceti.md) when explicitly requested |
 | Run with multiple agents | Add [Coordinate](workflows/coordinate.md) when delegation is available and authorized |
@@ -47,6 +48,21 @@ explanation and any supporting visuals. Every run reports numerical coverage,
 verified changes, and available before/after measurements from the
 [run records](references/records.md). Capture baseline inputs before editing;
 a small job can keep its records and summary inline.
+
+## Choose the objective
+
+Record `objective: maintainability` by default. When the user explicitly asks to
+reduce an inclusive Mathlib duplication metric, record
+`objective: inclusive-duplication` and read [Inclusive duplication](workflows/inclusive-duplication.md).
+That objective prefers removing covered local declarations and migrating their
+consumers to Mathlib, including useful wrappers already delegating their proofs.
+Its retention and acceptance rules take precedence over general advice to keep
+specialized interfaces. Preserve mathematical claims and honor explicit project
+compatibility requirements; record necessary retained matches as exceptions.
+
+The objective is independent of the operation and persistence mode: an audit
+still makes no source edits, and bounded work does not become a campaign.
+Ordinary reuse requests do not implicitly select a benchmark objective.
 
 ## Choose persistence
 

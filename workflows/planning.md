@@ -113,6 +113,12 @@ workers claim, execute, and integrate them.
 
 ## Specify acceptance and stopping conditions
 
+For `objective: inclusive-duplication`, follow the [removal policy](inclusive-duplication.md#remove-covered-declarations-and-migrate-consumers).
+Plan confirmed covered statements as declaration removals with consumer migration
+and recovery witnesses. Keep proof-body-only reuse tasks separate; they cannot
+substitute for this objective. Name retained matches and their constraints, and
+include comparable baseline/final judge evaluation in the acceptance plan.
+
 For each batch, identify the affected build targets and consumers, the appropriate
 axiom or statement-preservation checks, and a separate quality review. Reuse
 existing project checks when they establish the needed property. Do not name a

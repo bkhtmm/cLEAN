@@ -82,6 +82,28 @@ and delegation permissions come from the host/user, not from this folder. An
 authorized cleanup proceeds through audit, plan, repair, and verification;
 audit-only and plan-only requests leave target sources unchanged.
 
+## Select the cleanup objective
+
+The default objective is `maintainability`: useful interfaces may remain while
+their proofs delegate to Mathlib. To reduce a judge metric that also flags those
+specializations, select `inclusive-duplication`:
+
+```text
+Use $clean with objective: inclusive-duplication on /path/to/formalization.
+Reduce the inclusive Mathlib duplication metric using the frozen judge protocol
+at /path/to/judge. Remove confirmed covered local declarations, including
+wrappers already using Mathlib, and migrate their consumers. Preserve the main
+claims and dependency pins. Verify recovery of removed statements and report
+actual before/after flag counts, eligible counts, rates, and retained exceptions.
+```
+
+The [inclusive workflow](workflows/inclusive-duplication.md) separates statement
+overlap from duplicated proof implementation. Shortening a proof alone does not
+remove its statement's flag. Judge evaluation can be unavailable or noisy, so
+verified repairs and measured reduction are reported separately. This objective
+can be combined with bounded or campaign mode; audit/plan requests still make no
+source changes.
+
 ## Select bounded or campaign mode
 
 Choose the mode in your request. Bounded mode is the default for a finite task:

@@ -10,8 +10,8 @@ produces a plan. Repair still requires a cleanup/refactoring mandate.
 ## Establish coverage and the frontier
 
 Record the selected operation, `mode: campaign`, repository identity, preserved
-claims, requested scope/depth, and effective resource limits in the existing
-[run record](../references/records.md#campaign-state). Use one file for a small
+claims, selected objective, requested scope/depth, and effective resource limits
+in the existing [run record](../references/records.md#campaign-state). Use one file for a small
 campaign; larger repositories may keep linked coverage and task tables.
 
 Inventory the declared scope into coherent mathematical areas and relevant
@@ -104,8 +104,10 @@ then challenge important contract and dependency-replacement decisions. Check
 retention reasons for duplicated proofs or unnecessary requirements. No new
 finding is required; disclose authorized sampling and unreviewed scope instead
 of inferring completeness from an empty backlog. Complete review coverage does
-not itself resolve candidates or accept repairs, and closure does not require
-zero judge flags or unrelated new mathematical development.
+not itself resolve candidates or accept repairs. For inclusive duplication, also
+apply its [metric and completion rules](inclusive-duplication.md#measure-and-finish-against-the-objective).
+Ordinary maintainability closure has no judge-score target; any requested score
+target remains explicit. Neither objective requires unrelated new mathematics.
 
 Complete only when closure supports these conditions. State the achieved scope
 and depth and remaining uncertainty; this is not proof of a globally optimal
