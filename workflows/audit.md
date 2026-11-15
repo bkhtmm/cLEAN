@@ -159,12 +159,13 @@ cannot claim full theorem coverage. This depth is independent of persistence mod
    do not close a match merely because its proof already invokes Mathlib.
 4. **Investigate supported candidates.** Test concrete weaker signatures and
    replacement adapters in the pinned environment before accepting repairs.
-   Record compiled checks separately from reviewer judgments. Apply inclusive
-   removal and exception rules by default. Only under an explicitly selected
-   maintainability objective may a useful API role justify retaining a covered
-   wrapper. Substantial unproved generalizations remain investigations or deferred
-   work. Report measured judge reduction only with comparable evaluations; a
-   zero-flag target applies only when requested. No objective requires inventing
+   Record compiled checks separately from reviewer judgments. Under default
+   maintainability, a useful API role may justify retaining a covered wrapper
+   with a delegated proof. Apply inclusive removal and exception rules only when
+   that objective was explicitly selected. Substantial unproved generalizations
+   remain investigations or deferred work. Report measured judge reduction only
+   with comparable evaluations; a zero-flag target applies only when requested.
+   No objective requires inventing
    an unsupported change for every theorem.
 5. **Maintain and reconcile coverage.** Use the inventory during cleanup and
    finish unreviewed entries before final verification. Map moves, renames,

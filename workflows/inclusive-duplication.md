@@ -1,10 +1,11 @@
 # Reduce inclusive Mathlib duplication
 
-This is cLEAN's default reuse policy; the user does not need to name an objective
-or a judge metric. Apply alongside the requested audit, plan, repair, or
-verification workflow and the [reuse rubric](../rubrics/reuse.md), unless the user
-explicitly selects `objective: maintainability`. The default does not authorize
-repairs during an audit or change bounded/campaign persistence or resource limits.
+Apply only when the user explicitly selects `objective: inclusive-duplication`,
+aggressive statement deduplication, or an inclusive duplication metric. Ordinary
+cLEAN use defaults to maintainability and the [reuse rubric](../rubrics/reuse.md).
+Apply this objective alongside the requested audit, plan, repair, or verification
+workflow. It does not authorize repairs during an audit or change bounded/campaign
+persistence or resource limits.
 
 ## Establish the metric and baseline
 
@@ -44,7 +45,7 @@ Mathlib match, including unchanged one-line wrappers. Track separately:
   or no match found within the recorded search boundary.
 
 Neither existing delegation nor a useful API/simp role closes a confirmed match
-under this objective. Both may justify retention under explicit maintainability;
+under this objective. Both may justify retention under default maintainability;
 here they identify consumer work needed to remove the declaration. Judge output
 is a lead requiring source comparison and a checked adapter, not authority to
 delete a theorem. Inspect plausible more general formulations before treating

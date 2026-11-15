@@ -58,18 +58,21 @@ a small job can keep its records and summary inline.
 
 ## Choose the objective
 
-Record `objective: inclusive-duplication` by default and read
-[Inclusive duplication](workflows/inclusive-duplication.md) when reviewing reuse.
-Ordinary cLEAN use follows this policy without special prompt wording: prefer
-removing confirmed Mathlib-covered local declarations and migrating their
-consumers, including useful wrappers already delegating their proofs. Its
-retention and acceptance rules take precedence over general advice to keep
-specialized interfaces. Preserve mathematical claims and honor explicit project
-compatibility requirements; record necessary retained matches as exceptions.
+Record `objective: maintainability` by default. Search for and document overlap
+with pinned Mathlib and local results. Decide separately whether to replace an
+independent implementation and whether to retain its public interface. Keep a
+wrapper when its mathematical, automation, or compatibility role justifies its
+cost, and delegate its proof to existing mathematics when suitable. Delete
+redundant declarations when removal and consumer migration improve the library;
+overlap alone does not establish that benefit. Use the [reuse rubric](rubrics/reuse.md)
+for the evidence and retention criteria.
 
-Use `objective: maintainability` only when the user explicitly selects the
-alternative policy of retaining useful covered interfaces. That changes the
-retention decision, not the requirement to search for and document overlap.
+Use `objective: inclusive-duplication` only when the user explicitly selects
+aggressive statement deduplication or an inclusive duplication metric. Read
+[Inclusive duplication](workflows/inclusive-duplication.md); its removal and
+exception rules then take precedence over ordinary interface retention.
+Preserve mathematical claims and honor explicit compatibility requirements
+under either objective.
 
 The objective is independent of the operation and persistence mode: an audit
 still makes no source edits, and bounded work does not become a campaign.
@@ -108,15 +111,17 @@ review the changed and affected declarations without expanding to the repository
 | --- | --- |
 | [Correctness](rubrics/correctness.md) | Do statements and definitions express the intended mathematics? |
 | [Build health](rubrics/build-health.md) | Are Lean/Mathlib versions suitable for reuse, and do the scoped builds run without warnings? |
-| [Scope](rubrics/scope.md) | Does this change advance the requested cleanup while preserving claims? |
 | [Reuse](rubrics/reuse.md) | Do executed searches of project and pinned dependency sources reveal reusable results, proof steps, or constructions? |
 | [API design](rubrics/api-design.md) | Can consumers use the objects through a coherent public interface? |
 | [Generality](rubrics/generality.md) | Are assumptions and abstractions at a useful, natural level? |
 | [Architecture](rubrics/architecture.md) | Do mathematical homes and imports separate foundations from proof machinery? |
-| [Naming](rubrics/naming.md) | Can a user find the right declaration and predict its meaning? |
-| [Documentation](rubrics/documentation.md) | Can a reader identify the contents, contracts, and intended uses? |
+| [Discoverability](rubrics/discoverability.md) | Do names, notation, documentation, and examples help readers find, understand, and use the mathematics? |
 | [Attribution](rubrics/attribution.md) | Are mathematical and formal sources credited and traceable? |
 | [Proof quality](rubrics/proof-quality.md) | Do proofs expose useful reasoning and remain understandable and robust? |
+
+Assess scope and coherence through [Planning](workflows/planning.md#establish-scope-and-coherence),
+against the user's mandate and the proposed repair's consumers and acceptance
+conditions. Scope is a planning constraint rather than a separate quality angle.
 
 ## Operating contract
 

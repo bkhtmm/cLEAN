@@ -11,6 +11,36 @@ For broad cleanup, the initial baseline and mathematical map can support a
 first structural plan while individual theorem reviews continue; their eventual
 coverage requirements remain unchanged.
 
+## Establish scope and coherence
+
+Judge proposed work against the user's requested outcomes, existing claims and
+consumers, and effective project policies. Reassess existing material on its
+merits even when it has already merged. Existing material may be reorganized,
+replaced, documented, or deleted when required mathematics and useful interfaces
+are preserved under the selected objective and compatibility policy.
+
+Use the [reuse retention criteria](../rubrics/reuse.md#decide-whether-keeping-the-declaration-serves-a-purpose)
+to judge covered interfaces under default maintainability. The absence of an
+internal reference is insufficient to delete a public result; consider its
+documented purpose, examples, external obligations, and consumer-search limits.
+When inclusive duplication is explicitly selected, removal of a confirmed
+Mathlib-covered interface and migration of its consumers is intended scope,
+subject to that objective's preservation and exception rules.
+
+New supporting lemmas and modest generalizations belong in cleanup when they
+directly enable an identified repair or reusable interface. Explain their role
+and cost even when they were not named in the request. Keep unrelated new
+formalization outside the mandate.
+
+A coherent unit can span many files when it moves one interface and its users.
+Choose units by dependency and acceptance boundaries, rather than a fixed diff
+size or one-file rule. Separate unrelated cosmetic work when bundling it would
+obscure review or failure isolation. A global plan can contain many such units.
+
+For a scope issue, name the commitment, unsupported addition or loss, and a
+narrower transformation that still satisfies the user. Check that benefits reach
+the requested area; local polish does not complete an unresolved main repair.
+
 ## Establish the preservation and change boundaries
 
 From the audit, record the claimed results to preserve, relevant definitions and
