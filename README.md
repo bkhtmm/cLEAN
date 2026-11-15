@@ -192,6 +192,7 @@ upgrade dependencies, or turn a local cleanup into an upstream submission.
 | [campaign](workflows/campaign.md) | Optional discovery loop, coverage, closure, and resumable checkpoints |
 | [report](workflows/report.md) | Flexible result explanations, visual selection, and links to supporting evidence |
 | [rubrics](rubrics/_common.md) | Shared evidence rules and quality angles, including build health, linked from the entry point |
+| [Mathlib naming conventions](references/mathlib-naming-conventions.md) | Full upstream naming guide with source revision and retrieval date; read when checking names through the discoverability rubric |
 | [records](references/records.md) | Portable run, finding, task, check, and handoff formats |
 | [agents/openai.yaml](agents/openai.yaml) | Optional UI metadata; the workflow itself is agent-neutral |
 
@@ -207,6 +208,11 @@ cLEAN's mathematical review criteria are adapted from
 [TauCetiReview](https://github.com/TauCetiProject/TauCetiReview/tree/main/rubrics).
 Its workflows apply those criteria to auditing, planning, refactoring, migrating,
 and verifying existing Lean repositories.
+
+The bundled [Mathlib naming guide](references/mathlib-naming-conventions.md)
+comes directly from [mathlib-landing](https://github.com/leanprover-community/mathlib-landing),
+with its source revision and retrieval date recorded in the file and its
+[upstream MIT notice](references/mathlib-naming-LICENSE) retained alongside it.
 
 ## License
 
