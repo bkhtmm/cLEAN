@@ -1,11 +1,4 @@
-> **Upstream guide:** [Mathlib naming conventions](https://mathlib.org/contribute/naming.html).
-> **Source file:** [community/templates/contribute/naming.md](https://github.com/leanprover-community/mathlib-landing/blob/96e2b3dd41395cc104efe1f69d7cefc9f3027373/community/templates/contribute/naming.md).
-> **Source revision:** `96e2b3dd41395cc104efe1f69d7cefc9f3027373` (repository commit dated 2026-11-11).
-> **Retrieved:** 2026-11-15 (Asia/Almaty).
-> **Upstream SHA-256:** `049c4fa0bad8ddd8759acc8a889b668da2e5153425014d2fb3113fc90492956f`.
-> **License:** MIT; see the [retained upstream notice](mathlib-naming-LICENSE).
-> **Local changes:** The relative documentation link is expanded to its absolute upstream URL; all guide text and sections are retained.
-> **Refresh:** Fetch the full official source and update the revision, retrieval date, checksum, and license notice together.
+> Source: [Mathlib @ `96e2b3d`](https://github.com/leanprover-community/mathlib-landing/blob/96e2b3dd41395cc104efe1f69d7cefc9f3027373/community/templates/contribute/naming.md) · Retrieved 2026-11-15 · [MIT](mathlib-naming-LICENSE).
 
 <!-- BEGIN UPSTREAM GUIDE -->
 
