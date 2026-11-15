@@ -16,7 +16,7 @@ adapts to both broad libraries and deep, focused projects, then migrates useful
 boundaries in verified batches before granular cleanup of affected consumers.
 Sound existing organization can be retained without moving files.
 
-cLEAN supports focused repairs and broader repository campaigns, run by a single
+cLEAN supports focused repairs and sustained repository cleanup, run by a single
 agent or an authorized team. It produces reviewable changes, migration notes,
 and evidence of the improvements and checks performed.
 
@@ -93,9 +93,9 @@ audit-only and plan-only requests leave target sources unchanged.
 cLEAN's goal is maintainability while preserving mathematics. Ordinary `$clean`
 requests search for Mathlib/local overlap and replace duplicated implementations
 where appropriate. Useful wrappers can remain when their mathematical, automation,
-or compatibility
-role justifies their cost; their proofs should reuse existing mathematics when
-suitable. Redundant declarations can be deleted with their consumers migrated.
+or compatibility role justifies their cost; their proofs should reuse existing
+mathematics when suitable. Redundant declarations can be deleted with their
+consumers migrated.
 
 The [duplication workflow](workflows/inclusive-duplication.md) is part of normal
 cleanup. It examines statement overlap even when a proof already delegates to
@@ -118,54 +118,54 @@ Judge evaluation can be unavailable or noisy, and a lower score alone does not
 establish a better library. A useful retained wrapper can remain a known overlap
 without being an unresolved maintenance defect. Audit/plan requests still leave
 sources unchanged; neither duplication review nor evaluation changes permissions
-or bounded/campaign persistence.
+or the declared scope and resource limits.
 
-## Select bounded or campaign mode
+## Work to the requested scope
 
-Choose the mode in your request. Bounded mode is the default for a finite task:
+Focused requests complete the named repair and its affected consumers:
 
 ```text
 Use $clean to refactor Algebra/Orders and its affected consumers.
 ```
 
-For repeated discovery across a larger scope, select campaign mode explicitly:
+Whole-repository or broad multi-area requests automatically use
+[sustained repository work](workflows/campaign.md): repeated discovery, verified
+repair batches, coverage tracking, and a closure review. For example:
 
 ```text
-Use $clean in campaign mode on /path/to/formalization.
-Audit, refactor, and verify the whole repository for reuse and maintainability.
+Use $clean to audit, refactor, and verify the whole repository at
+/path/to/formalization for reuse and maintainability.
 Keep the mathematical claims and pinned dependencies intact. Track coverage,
 discover further work after each batch, and perform a closure review before
 declaring completion. Save progress under /path/to/run-records. Use up to
 8 hours; if work remains when that limit is reached, leave a resumable checkpoint.
 ```
 
-The example's time allocation is optional and user-selected. Campaign mode keeps
-the original scope and permissions. You can also request a campaign audit or
-plan without authorizing source edits. Merely naming the whole repository does
-not select campaign mode.
+The example's time allocation is optional and user-selected. State the scope,
+requested operation, and resource limits; no mode keyword or setting is needed.
+Audit-only and plan-only requests still leave target sources unchanged.
 
-The agent reads the selector in [SKILL.md](SKILL.md#choose-persistence), follows
-[the campaign workflow](workflows/campaign.md), and records its choice in the
-run state. For example:
+The agent follows [the scope instructions](SKILL.md#work-to-the-requested-scope)
+and records coverage, progress, and the next action. For example:
 
 ```yaml
 operation: refactor
-mode: campaign
 scope: whole repository
 current_batch: T-006
 next_action: inspect remaining AnalyticSpace consumers
 ```
 
 This is an illustrative progress record, not a configuration file you must
-prepare. In a later request, say "Resume this cLEAN campaign using the run record
-at /path/to/run-records." The agent retains the selected mode and checks that
-the saved state still matches the repository before continuing. The host agent's
+prepare. In a later request, say "Resume this cLEAN cleanup using the run record
+at /path/to/run-records." The agent checks the recorded operation, scope, resource
+limits, and saved state against the repository before continuing. The host agent's
 runtime determines automatic continuation; the skill adds no new UI switch or
 background service.
 
-Campaign mode repeats discovery and verified batches until its coverage and
-closure conditions are met, or saves incomplete progress at a limit/blocker.
-It does not require edits when review finds the existing code already useful.
+Repository work continues until the declared coverage and closure conditions are
+met, or saves incomplete progress at a resource limit or a blocker that prevents
+further in-scope work.
+Review need not produce edits when the existing code is already useful.
 
 ## What you receive
 
@@ -194,7 +194,7 @@ upgrade dependencies, or turn a local cleanup into an upstream submission.
 | [SKILL.md](SKILL.md) | Agent entry point, workflow routing, and invariants |
 | [workflows](workflows/audit.md) | Audit, planning, repair, verification, and optional coordination |
 | [structure](workflows/structure.md) | Early layout design scaled to the repository, with Lean-aware moves, splits, and migrations |
-| [campaign](workflows/campaign.md) | Optional discovery loop, coverage, closure, and resumable checkpoints |
+| [repository work](workflows/campaign.md) | Discovery, coverage, closure, and resumable checkpoints for whole-repository or broad multi-area requests |
 | [report](workflows/report.md) | Flexible result explanations, visual selection, and links to supporting evidence |
 | [rubrics](rubrics/_common.md) | Shared evidence rules and quality angles, including build health, linked from the entry point |
 | [Mathlib naming conventions](references/mathlib-naming-conventions.md) | Full upstream naming guide with source revision and retrieval date; read when checking names through the discoverability rubric |
@@ -204,8 +204,8 @@ upgrade dependencies, or turn a local cleanup into an upstream submission.
 ## Validation and next pilots
 
 The draft has been tried on small Lean-only examples. Large Mathlib repositories,
-multi-agent campaigns, and automatic continuation across runtime turns still
-need testing before relying on large autonomous campaigns.
+multi-agent cleanup, and automatic continuation across runtime turns still
+need testing before relying on large autonomous repository cleanups.
 
 ## Acknowledgments
 

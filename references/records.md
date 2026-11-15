@@ -17,9 +17,9 @@ entry for the final accepted state.
 - **Skill identity:** cLEAN revision and relevant local changes when available,
   or content hashes of the instruction files used. The version label alone may
   not distinguish changing drafts. Record the executing model when available.
-- **Mandate:** requested operation (audit, plan, refactor, or verify), persistence
-  mode (`bounded` or `campaign`), scope and review depth/exclusions, requested
-  outcomes and numerical evaluations, main claims, effective compatibility and
+- **Mandate:** requested operation (audit, plan, refactor, or verify), scope and
+  review depth/exclusions, requested outcomes and numerical evaluations, main
+  claims, effective compatibility and
   axiom policies, pinned Lean/dependency versions, and resource limits.
 - **Evidence:** baseline commands and failures, preserved specification location,
   mathematical sources, coverage by module and angle, and unperformed checks.
@@ -157,10 +157,11 @@ inventory. Numerical evaluation fields apply only when evaluation was requested:
   Record evaluation as unavailable when it could not run, and the target as unmet
   when measured results do not satisfy it. Do not relabel removals as `none_found`.
 
-## Campaign state
+## Repository progress
 
-For [campaign mode](../workflows/campaign.md), extend the same run record; no
-separate configuration file or database is required. Keep:
+For [whole-repository or broad multi-area work](../workflows/campaign.md), extend
+the same run record with the fields below. Focused tasks can keep proportionate
+progress inline; no separate configuration file or database is required.
 
 - **Coverage:** mathematical areas and their module sets; relevant quality
   angles, intended inspection depth, inspected snapshot, evidence, and remaining
@@ -173,9 +174,9 @@ separate configuration file or database is required. Keep:
   need enough evidence to prevent repeated exploration, not a full transcript.
 - **Checkpoint:** candidate identity, preserved specification, accepted patches,
   pending checks, safe state of unfinished edits, resource limits, and exact next
-  action. Keep the selected mode and operation visible after context loss.
+  action. Keep the operation, scope, and pending work visible after context loss.
 - **Closure:** review snapshot, coverage/depth actually reached, reviewer and
-  evidence, unresolved findings, and whether the campaign is complete at that
+  evidence, unresolved findings, and whether the declared scope is complete at that
   depth or remains incomplete because of gaps, checks, blockers, or resources.
 
 ## Finding
@@ -222,7 +223,7 @@ Use `needs_investigation` or `blocked` with a concrete missing prerequisite;
 `deferred` when outside the current scope/budget. A reviewer can return a task to
 `in_progress`. Single-agent runs may collapse claimed and in-progress. An
 accepted patch passed its task checks; integrated means the combined candidate
-passed its integration checks. Neither means the entire campaign is complete.
+passed its integration checks. Neither means the entire requested scope is complete.
 
 ## Check
 

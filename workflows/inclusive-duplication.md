@@ -109,8 +109,9 @@ Do not repeatedly judge unchanged snapshots to seek a better score.
 For each confirmed overlap, record a verified repair or an evidence-backed
 retention decision, with candidates and search gaps still visible. Justified
 retention can resolve an interface question while implementation work remains;
-accept that repair only after its own checks pass. Apply the ordinary campaign
-closure conditions when campaign mode was selected.
+accept that repair only after its own checks pass. For whole-repository or broad
+multi-area work, also apply the [closure checks](campaign.md#close-against-evidence)
+to the declared scope.
 
 When evaluation was requested, report separately whether its measurement or
 threshold target was met. An unavailable evaluation or unmet score target leaves

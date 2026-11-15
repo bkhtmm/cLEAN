@@ -174,16 +174,16 @@ review does not establish every other quality dimension. Compare the same scope
 and claims when reporting before-and-after results.
 
 Select work that fits the run's resource limits. If reliable costs are unknown,
-use the first bounded unit to measure them before committing to a large campaign.
+use the first bounded unit to measure them before scaling across the declared scope.
 Stop or revise a line of work when its prerequisite remains unresolved, its
 expected benefit is no longer supported, or its cost exceeds the run's limits.
-Report deferred work explicitly. Do not call a partial campaign a completed
+Report deferred work explicitly. Do not call partially completed work a finished
 library cleanup.
 
-In [campaign mode](campaign.md), the plan is a living backlog. Include the next
-coverage gap or discovery question as well as ready repairs, and revise tasks
+For [whole-repository or broad multi-area work](campaign.md), keep a living backlog.
+Include the next coverage gap or discovery question as well as ready repairs, and revise tasks
 after integrated changes expose new consumers or remove their original cause.
-Use the campaign closure conditions before treating an exhausted plan as done.
+Use the closure conditions before treating an exhausted plan as done.
 
 ## Deliver the plan
 

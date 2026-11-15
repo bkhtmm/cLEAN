@@ -1,25 +1,26 @@
-# Run a refactoring campaign
+# Sustain repository work
 
-Use when campaign mode was selected under [the entry point](../SKILL.md#choose-persistence).
-Campaign mode is a persistence policy over the requested operation. It changes
-how the agent discovers further work and establishes completion; it does not
-expand edit permissions, scope, resource limits, or delegation authority.
-An audit-only campaign inspects and records findings; a planning-only campaign
-produces a plan. Repair still requires a cleanup/refactoring mandate.
+Use automatically for whole-repository or broad multi-area requests under
+[the scope instructions](../SKILL.md#work-to-the-requested-scope). Continue the
+requested operation through discovery, coverage review, verified batches, and
+closure. Keep edit permissions, mathematical scope, resource limits, and
+delegation authority within the mandate. Audit-only work inspects and records
+findings; planning-only work produces a plan. Repairs require a cleanup or
+refactoring mandate. Focused tasks finish their named scope and affected consumers.
 
 ## Establish coverage and the frontier
 
-Record the selected operation, `mode: campaign`, repository identity, preserved
+Record the requested operation, repository identity, preserved
 claims, requested scope/depth and measurements, and effective resource limits
-in the existing [run record](../references/records.md#campaign-state). Use one file for a small
-campaign; larger repositories may keep linked coverage and task tables.
+in the existing [run record](../references/records.md#repository-progress). Use one
+file for a small run; larger repositories may keep linked coverage and task tables.
 
 Inventory the declared scope into coherent mathematical areas and relevant
 module sets. Track which quality angles were examined, at what depth, on which
 snapshot, and with what evidence. Distinguish an import inventory from a semantic
 review and a full build. Cover high-impact interfaces and main-result dependency
 chains early, then expand into uncovered areas. A representative pilot is a
-starting point, not completion of a repository-wide campaign.
+starting point, not completion of the declared review scope.
 
 If the user specified a depth, retain it. Otherwise record the chosen depth and
 its limits and continue expanding useful coverage within available resources.
@@ -89,11 +90,14 @@ The closure review asks:
   For a user-requested sample, reconcile that cohort and report the wider
   population separately; completing the sample does not claim full-library
   coverage.
-- Are confirmed actionable findings addressed, with remaining candidates
-  investigated or given an evidence-based disposition? A speculative preference
-  can be withdrawn; deferring an actionable issue does not resolve it.
-- Have all required preservation, trust, consumer, and integration checks passed
-  for the actual final candidate, with migration notes current?
+- Has the requested operation been completed? An audit records located findings,
+  candidates, and limits; a plan supplies evidence-backed tasks and acceptance
+  conditions. Neither requires repairing the reported defects. For cleanup,
+  confirmed actionable findings must be addressed and candidates investigated
+  or given an evidence-based disposition. A speculative preference can be
+  withdrawn; deferring an actionable repair does not resolve it.
+- For implemented changes, have all required preservation, trust, consumer, and
+  integration checks passed for the actual candidate, with migration notes current?
 - Does a fresh search/review of the important boundaries identify further
   material work within scope? If so, put it on the frontier and continue.
 
@@ -113,8 +117,11 @@ or delete a useful interface merely to improve a score.
 
 Complete only when closure supports these conditions. State the achieved scope
 and depth and remaining uncertainty; this is not proof of a globally optimal
-library. If material gaps, unresolved findings, or required checks remain, the
-campaign is incomplete even if its accepted batches are individually sound.
+library. Missing required coverage or unfinished deliverables keep the operation
+incomplete. Open findings can be the result of a completed audit or plan; they
+do not certify the library's condition. Unresolved actionable repair findings or
+required acceptance checks keep cleanup incomplete even when individual batches
+are sound.
 
 ## Checkpoint and resume
 
@@ -127,7 +134,7 @@ rather than labeling them verified.
 When a blocker affects one path, record it and continue independent work. When
 no defensible action remains, or the runtime/budget ends, save the candidate,
 coverage gaps, pending checks, reasons, and exact next action as an incomplete
-checkpoint. Do not mark the campaign complete just to end the turn.
+checkpoint. Do not mark the requested work complete just to end the turn.
 
 Use [Report](report.md) for a final report or user-facing checkpoint. Select a
 useful explanation of the integrated work and coverage, with its numerical
