@@ -58,4 +58,3 @@ or placement, and a probe demonstrating the improvement. Check preserved
 contracts, automation, generated declarations where relevant, and migrated
 uses. Apply the effective compatibility policy: remove redundant surface when
 justified; retain required migration support when the project calls for it.
-Do not import TauCeti's unconditional no-compatibility policy.

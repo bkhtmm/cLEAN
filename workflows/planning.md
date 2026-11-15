@@ -176,15 +176,3 @@ Keep plan completion separate from task completion. For an end-to-end cleanup,
 continue into [Repair](repair.md) under the existing authorization. For a planning
 request, deliver the plan without editing the target. Use [Verify](verify.md) for
 acceptance and [Coordinate](coordinate.md) when agents are actually available.
-
-## Design sources
-
-- [TauCeti placement](https://github.com/TauCetiProject/TauCetiReview/blob/main/rubrics/placement.md)
-  and [public API review](https://github.com/TauCetiProject/TauCetiReview/blob/main/rubrics/api-design.md):
-  canonical mathematical homes, consumer-oriented interfaces, and useful exports.
-- [Resolution's refactoring account](https://resolution.org/post/formalizing-resolution-of-singularities):
-  organizing by mathematical meaning, separating proof machinery, reducing the
-  statement-review footprint, and accounting for recompilation cost.
-
-The ordering and handoff above are cLEAN design choices. These sources motivate
-them; they do not establish that the workflow has been validated autonomously.

@@ -20,8 +20,7 @@ investigate; demonstrate the identifiable source before making a claim.
 
 The user's codebase may have its own licensing and attribution conventions.
 Flag an evident conflict rather than choosing new license terms during cleanup.
-Do not inherit TauCeti's rule about placing roadmap credit only in a PR;
-follow the target's established documentation and publication practice.
+Follow the target's established documentation and publication practice.
 
 A finding gives the actual source, affected declarations/files, missing or lost
 credit, and a concrete repair. Acceptance verifies source links/version,

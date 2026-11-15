@@ -211,14 +211,3 @@ record the appropriate candidate or unresolved investigation. Recommend a repair
 only to the extent supported by evidence. Passing this angle means no actionable
 reuse problem was found within the inspected scope, not that every possible
 abstraction has been extracted.
-
-## Design sources
-
-- [TauCeti reuse rubric](https://github.com/TauCetiProject/TauCetiReview/blob/main/rubrics/reuse.md):
-  search for located replacements and support duplication claims with evidence.
-- [TauCeti public API rubric](https://github.com/TauCetiProject/TauCetiReview/blob/main/rubrics/api-design.md):
-  characteristic interfaces and the distinction between general mathematics and
-  proof-specific helpers.
-
-The evidence protocol, examples, and retention decisions above adapt these ideas
-to cLEAN's existing-repository workflow.

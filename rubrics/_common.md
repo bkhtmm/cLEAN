@@ -90,9 +90,3 @@ Keep review completion separate from the library's condition and from repair
 completion. An incomplete review can contain a valid finding. A completed
 review with no findings is not a certificate that the entire repository meets
 every quality criterion.
-
-## Design source
-
-Adapted in purpose from [TauCeti's shared review protocol](https://github.com/TauCetiProject/TauCetiReview/blob/main/rubrics/_common.md).
-cLEAN uses the audit finding record and an existing-repository assessment scope;
-it does not inherit TauCeti's PR verdicts or every local policy.

@@ -220,14 +220,3 @@ State whether the scoped audit is completed, partially completed, or blocked, an
 why. Keep that status separate from the condition of the audited library.
 For requests that include recommendations, pass the report to
 [Planning](planning.md); do not begin applying its proposed changes in audit mode.
-
-## Design sources
-
-- [TauCeti review angles](https://github.com/TauCetiProject/TauCetiReview/tree/main/rubrics):
-  evidence-based judgments about meaning, APIs, reuse, placement, and proof quality.
-- [Resolution's refactoring account](https://resolution.org/post/formalizing-resolution-of-singularities):
-  whole-library organization and the separation of statement vocabulary from
-  proof machinery.
-
-These sources inform the design. Their project-specific policies do not override
-the cLEAN operating contract or the target project's explicit requirements.

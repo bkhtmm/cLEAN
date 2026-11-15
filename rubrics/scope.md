@@ -2,8 +2,8 @@
 
 Use the [shared review rules](_common.md). Judge the work against the user's
 requested outcomes, the existing claims and consumers, and the effective project
-policies. cLEAN does not require a TauCeti roadmap or presume everything already
-merged is correct, useful, or permanently in scope.
+policies. Reassess existing material on its merits even when it has already
+merged.
 
 Existing material can be reorganized, replaced, documented, or deleted when the
 change preserves required mathematics and useful interfaces. The absence of an

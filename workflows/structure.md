@@ -70,13 +70,12 @@ relocating infrastructure merely for uniformity.
 
 ## Layout excerpts
 
-These trees show selected existing paths from
+These trees show selected paths from
 [Mathlib](https://github.com/leanprover-community/mathlib4/tree/f78acaf72ad85f1dc68259a994f3e2f1494fa334/Mathlib)
-and [TauCeti](https://github.com/TauCetiProject/TauCeti/tree/7b3aaabdeaef0c48b006d1ff4aa81e1f83ba020e/TauCeti),
-pinned to the snapshots reviewed on 15 November 2026.
-Unshown files and branches are omitted throughout; neither tree is a complete
-listing or a prescribed template. Folder nesting shows topic organization, not
-import direction.
+and [TauCeti](https://github.com/TauCetiProject/TauCeti/tree/7b3aaabdeaef0c48b006d1ff4aa81e1f83ba020e/TauCeti).
+Each link pins the example to a specific revision. Unshown files and branches are
+omitted throughout; neither tree is a complete listing or a prescribed template.
+Folder nesting shows topic organization, not import direction.
 
 ### Mathlib
 
