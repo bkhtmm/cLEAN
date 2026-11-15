@@ -1,7 +1,8 @@
 # Design and research record
 
 Research sources reviewed on 6 November 2026; theorem coverage and reporting
-design updated on 8 November 2026. This document explains cLEAN's choices; runtime
+design updated on 8 November 2026; repository structure research added on
+15 November 2026. This document explains cLEAN's choices; runtime
 agents normally need only the entry point and the relevant workflows/rubrics.
 The instructions synthesize the sources below rather than vendoring their
 prompts. cLEAN is not endorsed by these projects.
@@ -74,6 +75,46 @@ by contracts and dependencies, assess statement vocabulary separately from proof
 imports, and test a representative migration before expanding. `Defs.lean` is a
 useful option, not a mandatory file in every folder. The article motivates these
 choices; it does not demonstrate that cLEAN can automate the same judgment.
+
+## Repository structure
+
+On 15 November 2026, inspected complete source listings and selected Lean modules
+and build configuration from Mathlib at
+[`f78acaf72ad85f1dc68259a994f3e2f1494fa334`](https://github.com/leanprover-community/mathlib4/tree/f78acaf72ad85f1dc68259a994f3e2f1494fa334)
+and TauCeti at
+[`7b3aaabdeaef0c48b006d1ff4aa81e1f83ba020e`](https://github.com/TauCetiProject/TauCeti/tree/7b3aaabdeaef0c48b006d1ff4aa81e1f83ba020e).
+This was a layout and dependency study, not a semantic audit of either library.
+
+For annotated Mathlib and TauCeti tree excerpts and their boundary choices, see
+[the structure workflow](../workflows/structure.md#layout-excerpts).
+
+### Consequences for cLEAN
+
+These observations motivate choosing structure by both mathematical breadth and
+internal scale, with independent importable units. They do not prescribe a copy
+of either tree for a focused downstream project. Their build entry points also
+differ: [Mathlib's root](https://github.com/leanprover-community/mathlib4/blob/f78acaf72ad85f1dc68259a994f3e2f1494fa334/Mathlib.lean)
+aggregates imports, whereas [TauCeti's configuration](https://github.com/TauCetiProject/TauCeti/blob/7b3aaabdeaef0c48b006d1ff4aa81e1f83ba020e/lakefile.toml)
+builds modules through a glob and intentionally leaves its root empty. Migration
+must preserve actual build coverage rather than impose either convention.
+
+Lean's [module](https://lean-lang.org/doc/reference/latest/Source-Files-and-Modules/),
+[namespace and section](https://lean-lang.org/doc/reference/latest/Namespaces-and-Sections/),
+and [Lake](https://lean-lang.org/doc/reference/latest/Build-Tools-and-Distribution/Lake/)
+documentation informed the migration guidance. Whole-file moves change module
+paths without requiring declaration namespace changes. Splits introduce context
+and visibility boundaries. A small local Lean 4.34.1 probe confirmed that dropping
+`variable (n : Nat)` while extracting `theorem self_eq : n = n := rfl`, with
+automatic implicit variables enabled, still compiles but changes the elaborated
+type and argument explicitness. This motivates signature checks beyond builds;
+it does not validate large-repository restructuring.
+
+The [structure workflow](../workflows/structure.md) therefore begins after initial
+baseline and mathematical discovery and enables bounded migrations before
+granular cleanup of affected consumers. It retains full eventual theorem review,
+captures baseline inventories before edits, and permits a no-change structural
+decision. The sequencing and scale adaptation are cLEAN design choices that still
+need real-run evaluation.
 
 ## Prove2Me: durable work and progressive disclosure
 

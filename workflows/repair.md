@@ -51,11 +51,11 @@ Choose the relevant transformation, not every step below:
   burden. Provide its characteristic API separately if useful. Definitions that
   require proofs to construct their objects still need those proofs; do not
   introduce axioms, placeholders, or circular imports to create a small file.
-- **Reorganize modules:** move coherent topics together and update imports,
-  umbrella modules, explicit Lake library roots/globs or targets, tests,
-  examples, docs, and generated-doc configuration where applicable. Preserve
-  dependency direction. Mechanical moves should be distinguishable from
-  mathematical interface changes in the diff or successive local units.
+- **Reorganize modules:** follow [Structure](structure.md#migrate-coherent-units)
+  for whole-module moves, splits/merges, and new API boundaries. Migrate consumers
+  and build/export references with the sources, reconstruct local context where
+  needed, and preserve dependency direction. Keep mechanical relocation
+  distinguishable from mathematical interface changes.
 - **Improve an API or generalize:** implement a concrete proposed signature,
   prove the required relationship to the original, and migrate consumers. Check
   implicit arguments, universes, instance search, coercions, notation, and

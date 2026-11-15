@@ -5,6 +5,10 @@ useful dependency boundaries. Inspect the whole scoped structure before
 recommending a large reorganization; a file's name or its position in one proof
 plan does not determine its mathematical home.
 
+Use [Structure](../workflows/structure.md) to derive and migrate a layout early
+in broad work. Assess mathematical breadth separately from internal scale:
+a deep, single-subject library and a broad library can need different hierarchies.
+
 ## Separate roles where they matter
 
 Identify reusable objects/foundations, their public interfaces, project-specific

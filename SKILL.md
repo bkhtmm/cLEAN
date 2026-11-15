@@ -43,6 +43,13 @@ only the relevant rubric and repair/verification sections. Broad inventories,
 separate design reports, and a campaign ledger are for work that needs them.
 The same preservation and acceptance requirements still apply.
 
+For reorganization and broad library work, use [Structure](workflows/structure.md)
+after the initial baseline and mathematical map. Establish useful organization
+early, before granular cleanup scales up. An authorized cleanup implements
+enabling boundaries in verified batches while deeper review continues; an audit
+or plan records proposals only. Fit the layout to mathematical breadth and
+internal scale, and retain sound existing structure.
+
 For user-facing handoffs, use [Report](workflows/report.md) to choose a useful
 explanation and any supporting visuals. Every run reports numerical coverage,
 verified changes, and available before/after measurements from the
@@ -137,7 +144,8 @@ Continue independent work while an unresolved specification blocks one part.
 **Plan across dependencies; change bounded units.** Establish the relevant
 mathematical organization before widespread edits. Try a representative unit
 with a consumer, verify it, and use what it teaches to execute the remaining
-scope. Avoid imposing a new folder taxonomy or a numerical quality score.
+scope. Follow [Structure](workflows/structure.md) for layout and migration;
+avoid enforcing a universal folder taxonomy or a numerical quality score.
 
 **Make evidence durable and proportionate.** Use the user's working location or
 an identified run directory. The [record formats](references/records.md) define

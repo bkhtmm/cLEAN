@@ -71,6 +71,13 @@ folder prefixes are clues, not evidence that two files share a mathematical topi
 For a large repository, inventory broadly and inspect representative dependency
 chains in depth. State which areas remain unexamined.
 
+For reorganization and broad library work, use [Structure](structure.md) at this
+point to assess which organization to retain and which boundaries need work.
+In an end-to-end cleanup, this initial evidence can feed [Planning](planning.md)
+and enabling structural batches before every detailed theorem review is finished.
+Capture the required baseline inventory and measurements before edits, and keep
+unfinished reviews visible. An audit-only run leaves target sources unchanged.
+
 ## Inspect through the quality angles
 
 Use the [Shared review rules](../rubrics/_common.md) and the applicable detailed

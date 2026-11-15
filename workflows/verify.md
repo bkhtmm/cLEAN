@@ -11,10 +11,11 @@ changed mathematical definition.
 
 Record the revision/patch, relevant uncommitted changes, `lean-toolchain`, pinned
 dependency manifest, Lake configuration, and relevant options. Keep them fixed
-through ordinary cleanup. Run the documented build/check commands from the
-target root and record their real results. Inspect build configuration when
-necessary: a successful default target need not compile every library, example,
-benchmark, executable, or challenge file.
+except for planned configuration changes needed by the migration; keep toolchain
+and dependency versions fixed through ordinary cleanup. Run the documented
+build/check commands from the target root and record their real results. Inspect
+build configuration when necessary: a successful default target need not compile
+every library, example, benchmark, executable, or challenge file.
 
 For repository verification or changes to toolchain/dependency pins, assess
 [build health](../rubrics/build-health.md), including the dated release comparison.
@@ -55,6 +56,7 @@ Choose evidence appropriate to the change:
 | --- | --- |
 | Proof body only | The same elaborated statement and unchanged referenced definition meanings, with the replacement proof checked and its axioms inspected as appropriate |
 | Move or rename | Old-to-new mapping, corresponding statements/definitions, migrated consumers, and relevant namespace/attribute behavior |
+| Module split or merge | Mapped declarations with preserved elaborated types, binders, universes, and definition meanings; intended local-context, visibility, computation, and consumer behavior, using the [structural migration checks](structure.md#accept-the-batch-before-expanding) |
 | Generalized theorem | A checked derivation of the original quantified claim through the new theorem, with no added assumptions |
 | Removed Mathlib-covered declaration | A checked recovery of the original quantified claim from the located replacement, preserved definition meanings, migrated consumers/automation, and a documented old-to-new use mapping; retaining the old declaration name is not required |
 | Replaced definition or representation | A checked equality, equivalence, isomorphism, or other mathematically appropriate relation to the preserved object, plus transport of the claimed properties and consumer behavior that matters |
@@ -122,6 +124,9 @@ the evidence appear green.
 ## Check migration and integration
 
 Build the changed modules, affected consumers, and required final targets.
+For structural migrations, build every destination module explicitly or establish
+its coverage through the actual roots/globs and migrated import closure. A file's
+presence under a library directory alone does not establish that it was built.
 Include examples and other targets outside the default build when affected.
 Run relevant configured linters and import checks; do not repeat an unchanged
 check solely to produce more logs.

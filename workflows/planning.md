@@ -7,6 +7,9 @@ changing the target library. A plan does not authorize its own execution.
 If the audit is missing, follow [Audit](audit.md). If it is partial or stale,
 refresh the evidence needed for the intended work rather than restarting every
 check. Identify findings and dependencies that cannot yet support a repair.
+For broad cleanup, the initial baseline and mathematical map can support a
+first structural plan while individual theorem reviews continue; their eventual
+coverage requirements remain unchanged.
 
 ## Establish the preservation and change boundaries
 
@@ -32,6 +35,11 @@ lemmas that directly enable a scoped repair belong in that repair.
 
 Include contract simplifications and located dependency replacements alongside
 structural changes. A useful bounded plan need not introduce or move modules.
+
+Use [Structure](structure.md) to derive the layout early and plan moves, splits,
+merges, and within-file organization. Schedule enabling boundaries before
+granular cleanup of their affected consumers; independent local repairs need
+not wait for repository-wide migration.
 
 Use mathematical meaning and dependencies to choose boundaries. For each material
 structural proposal, name the affected objects, declarations, and consumers, and

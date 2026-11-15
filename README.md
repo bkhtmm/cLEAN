@@ -10,6 +10,12 @@ refactoring, and verification through the project's Lean toolchain. Its workflow
 examine theorem assumptions, opportunities to reuse Mathlib and local results,
 public APIs, module structure, proof quality, and documentation.
 
+For broad work, cLEAN establishes repository structure early, after initial
+baseline and mathematical discovery. Its [structure workflow](workflows/structure.md)
+adapts to both broad libraries and deep, focused projects, then migrates useful
+boundaries in verified batches before granular cleanup of affected consumers.
+Sound existing organization can be retained without moving files.
+
 cLEAN supports focused repairs and broader repository campaigns, run by a single
 agent or an authorized team. It produces reviewable changes, migration notes,
 and evidence of the improvements and checks performed.
@@ -177,6 +183,7 @@ upgrade dependencies, or turn a local cleanup into an upstream submission.
 | --- | --- |
 | [SKILL.md](SKILL.md) | Agent entry point, workflow routing, and invariants |
 | [workflows](workflows/audit.md) | Audit, planning, repair, verification, and optional coordination |
+| [structure](workflows/structure.md) | Early layout design scaled to the repository, with Lean-aware moves, splits, and migrations |
 | [campaign](workflows/campaign.md) | Optional discovery loop, coverage, closure, and resumable checkpoints |
 | [report](workflows/report.md) | Flexible result explanations, visual selection, and links to supporting evidence |
 | [rubrics](rubrics/_common.md) | Shared evidence rules and quality angles, including build health, linked from the entry point |

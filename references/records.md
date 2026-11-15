@@ -34,8 +34,9 @@ entry for the final accepted state.
   with scope, snapshot, method, exclusions, and source/check links. Link verified
   improvements and report locations. Extra graph extracts and observed event
   times are useful when they support the explanation.
-- **Organization:** mathematical map, proposed module boundaries, important
-  interfaces, task dependency order, and current integration point.
+- **Organization:** mathematical map, retain/reorganize decisions, proposed
+  module boundaries and migration destinations, important interfaces, task
+  dependency order, and current integration point.
 - **Progress:** accepted work, active/ready tasks, unresolved decisions, remaining
   scope, migration map, and the next useful action.
 
