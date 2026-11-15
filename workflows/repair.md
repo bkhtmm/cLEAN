@@ -37,12 +37,12 @@ than reconstructing improvement counts from an implementation summary.
 Choose the relevant transformation, not every step below:
 
 - **Replace implementation:** locate the replacement in the pinned library,
-  compare contracts, and demonstrate the adapter. Under default maintainability,
-  retain a public wrapper when its API, automation, or compatibility role
-  justifies its cost; remove it when deletion improves the interface and its
-  consumers. Under explicitly selected inclusive duplication, follow
-  [declaration removal and consumer migration](inclusive-duplication.md#remove-covered-declarations-and-migrate-consumers)
-  instead; proof delegation alone does not resolve a covered statement there.
+  compare contracts, and demonstrate the adapter. Retain a public wrapper when
+  its API, automation, or compatibility role justifies its cost; remove it when
+  deletion improves the interface and its consumers. Follow
+  [duplication repair and migration](inclusive-duplication.md#choose-and-verify-the-repair)
+  for both retained interfaces with delegated proofs and justified deletions.
+  Record statement overlap separately from the implemented improvement.
 - **Extract a fact:** formulate the shared mathematical statement, give it its
   natural home with minimal suitable dependencies, prove it, and migrate the
   identified consumers. Export useful infrastructure; keep argument-specific

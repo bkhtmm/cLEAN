@@ -88,32 +88,37 @@ and delegation permissions come from the host/user, not from this folder. An
 authorized cleanup proceeds through audit, plan, repair, and verification;
 audit-only and plan-only requests leave target sources unchanged.
 
-## Select the cleanup objective
+## Reuse during cleanup
 
-The default objective is `maintainability`. Ordinary `$clean` requests search for
-Mathlib/local overlap and replace duplicated implementations where appropriate.
-Useful wrappers can remain when their mathematical, automation, or compatibility
+cLEAN's goal is maintainability while preserving mathematics. Ordinary `$clean`
+requests search for Mathlib/local overlap and replace duplicated implementations
+where appropriate. Useful wrappers can remain when their mathematical, automation,
+or compatibility
 role justifies their cost; their proofs should reuse existing mathematics when
 suitable. Redundant declarations can be deleted with their consumers migrated.
 
-Select `objective: inclusive-duplication` explicitly to prefer removing confirmed
-Mathlib-covered declarations, including useful wrappers, under the
-[inclusive workflow's removal and exception rules](workflows/inclusive-duplication.md):
+The [duplication workflow](workflows/inclusive-duplication.md) is part of normal
+cleanup. It examines statement overlap even when a proof already delegates to
+Mathlib, then applies the same evidence-backed retention and removal rules.
+Overlap alone does not require deleting a useful interface.
+
+Numerical duplication evaluation is optional. Request it alongside cleanup when
+you need comparable before/after results:
 
 ```text
-Use $clean with objective: inclusive-duplication to refactor /path/to/formalization.
-Preserve the main claims and dependency pins. Verify recovery of removed
-statements and migrate affected consumers. Use the frozen judge protocol at
-/path/to/judge to report actual before/after counts, rates, and exceptions.
+Use $clean to refactor /path/to/formalization for maintainability.
+Preserve the main claims and dependency pins. Reuse Mathlib and retain justified
+interfaces; verify removed statements and migrate their consumers.
+Also use the frozen duplication judge at /path/to/judge to report comparable
+before/after counts, rates, and retained overlaps separately from verified repairs.
 ```
 
-The [inclusive workflow](workflows/inclusive-duplication.md) separates statement
-overlap from duplicated proof implementation. Shortening a proof alone does not
-remove its statement's flag. Judge evaluation can be unavailable or noisy, so
-verified repairs and measured reduction are reported separately. This objective
-can be combined with bounded or campaign mode; audit/plan requests still make no
-source changes. Both objectives require overlap searches, preservation, and
-consumer checks; they differ in whether a useful interface can justify retention.
+Shortening a proof alone does not remove its statement's duplication flag.
+Judge evaluation can be unavailable or noisy, and a lower score alone does not
+establish a better library. A useful retained wrapper can remain a known overlap
+without being an unresolved maintenance defect. Audit/plan requests still leave
+sources unchanged; neither duplication review nor evaluation changes permissions
+or bounded/campaign persistence.
 
 ## Select bounded or campaign mode
 

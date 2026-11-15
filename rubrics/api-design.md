@@ -47,9 +47,6 @@ intended grind rules have `@[grind]`, and applicable extensionality lemmas have
 incorrect annotations. Check rewriting direction, loops, interactions, and
 representative consumers. Preserve specialized lemmas that serve a useful
 public interface. The [reuse rubric](reuse.md) explains that distinction.
-Under `objective: inclusive-duplication`, its [removal policy](../workflows/inclusive-duplication.md#remove-covered-declarations-and-migrate-consumers)
-takes precedence: migrate the interface's consumers and record any required
-retained match as an exception.
 
 ## Acceptance evidence
 

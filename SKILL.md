@@ -23,7 +23,6 @@ instructions; this skill supplies a workflow, not authority to expand the task.
 | Assess or review quality | [Audit](workflows/audit.md); leave target sources unchanged |
 | Design a cleanup or reorganization | [Planning](workflows/planning.md), using current audit evidence |
 | Apply a refactor or clean up the repository | Audit and plan as needed, then [Repair](workflows/repair.md) and [Verify](workflows/verify.md) |
-| Reduce an inclusive Mathlib duplication judge metric | Add the [inclusive-duplication objective](workflows/inclusive-duplication.md) to the requested operation |
 | Check an existing patch | [Verify](workflows/verify.md), refreshing only affected baseline and review evidence |
 | Prepare or contribute selected mathematics to Tau Ceti | Add [Contribute to Tau Ceti](workflows/contribute-tauceti.md) when explicitly requested |
 | Run with multiple agents | Add [Coordinate](workflows/coordinate.md) when delegation is available and authorized |
@@ -56,28 +55,21 @@ verified changes, and available before/after measurements from the
 [run records](references/records.md). Capture baseline inputs before editing;
 a small job can keep its records and summary inline.
 
-## Choose the objective
+## Reuse for maintainability
 
-Record `objective: maintainability` by default. Search for and document overlap
-with pinned Mathlib and local results. Decide separately whether to replace an
-independent implementation and whether to retain its public interface. Keep a
+Improve maintainability while preserving the mathematics. Search for and document
+overlap with pinned Mathlib and local results. Decide separately whether to replace
+an independent implementation and whether to retain its public interface. Keep a
 wrapper when its mathematical, automation, or compatibility role justifies its
 cost, and delegate its proof to existing mathematics when suitable. Delete
 redundant declarations when removal and consumer migration improve the library;
 overlap alone does not establish that benefit. Use the [reuse rubric](rubrics/reuse.md)
-for the evidence and retention criteria.
+for the evidence and retention criteria, and [Duplication review](workflows/inclusive-duplication.md)
+for overlap assessment, repair, and consumer migration during normal cleanup.
 
-Use `objective: inclusive-duplication` only when the user explicitly selects
-aggressive statement deduplication or an inclusive duplication metric. Read
-[Inclusive duplication](workflows/inclusive-duplication.md); its removal and
-exception rules then take precedence over ordinary interface retention.
-Preserve mathematical claims and honor explicit compatibility requirements
-under either objective.
-
-The objective is independent of the operation and persistence mode: an audit
-still makes no source edits, and bounded work does not become a campaign.
-An actual judge-score claim still requires a comparable evaluation; when no
-judge is available, report verified deduplication and the measurement limit.
+Numerical duplication evaluation is optional and runs when requested. Report
+measured scores separately from verified repairs and justified interface retention;
+a score alone does not establish a maintenance defect or justify deletion.
 
 ## Choose persistence
 
