@@ -1,110 +1,120 @@
-# Reduce inclusive Mathlib duplication
+# Review duplication during normal cleanup
 
-Apply only when the user explicitly selects `objective: inclusive-duplication`,
-aggressive statement deduplication, or an inclusive duplication metric. Ordinary
-cLEAN use defaults to maintainability and the [reuse rubric](../rubrics/reuse.md).
-Apply this objective alongside the requested audit, plan, repair, or verification
-workflow. It does not authorize repairs during an audit or change bounded/campaign
-persistence or resource limits.
+Use with the [reuse rubric](../rubrics/reuse.md) during ordinary audit, planning,
+repair, and verification. Duplication review serves maintainability: find overlap,
+reuse existing mathematics, retain justified interfaces, and remove redundancy
+when migration improves the library. The review includes statements whose proofs
+already delegate to Mathlib. No separate selection is needed, and audit/plan
+requests still leave sources unchanged.
 
-## Establish the metric and baseline
+## Establish the review baseline
 
-Identify the actual judge rubric, prompt/schema, eligible source set and filters,
-searched dependency revisions, model/settings, and pass count. Preserve their
-identities with the baseline sources and results. Reuse an existing evaluation
-only when its inputs and provenance fit the comparison. When the judge or its
-protocol is unavailable, continue source review and report metric verification
-as unavailable; a manual classification is not a measured score.
+Use the declared review scope, pinned dependency source map, preserved claims,
+and stable theorem IDs from the [audit](audit.md#theorem-coverage). Execute the
+reuse rubric's applicable searches against pinned Mathlib and local sources.
+Inspect contracts and promising more general formulations; an unsuccessful name
+search does not establish that no replacement exists. Reject circular matches
+and candidates unavailable under the project's dependency and import constraints.
 
-Use the judge's distinctions and exclusions. An inclusive metric can count both
-an equivalent statement (`duplicate`) and a specialization (`special_case`),
-even when the local proof already calls the match. Respect its actual derivation
-bound, such as one or two short lines using a single substantive declaration and
-routine glue. A long compiled derivation establishes mathematical recoverability,
-not necessarily compliance with that scoring rule. Reject circular matches and
-compare against the exact dependency sources the judge permits; a result outside
-the project's pinned dependencies may remain unavailable for migration.
+## Review statements, implementations, and interfaces separately
 
-Keep the complete cLEAN theorem inventory, including private declarations,
-separate from the judge's eligible population. Map both to stable baseline IDs
-in the [run records](../references/records.md#inclusive-duplication-records).
-Scope, filters, and source ownership remain consistent through the comparison;
-changing visibility, moving copies outside the scan, or adding unflagged padding
-does not establish deduplication.
+For each theorem in the declared reuse-review scope, record:
 
-## Review overlap separately from implementation
-
-For every eligible theorem in the declared scope, search its statement for a
-Mathlib match, including unchanged one-line wrappers. Track separately:
-
-- **Statement overlap:** judge verdict or manual candidate classification, exact
-  located declaration, contract comparison, short derivation, and compile result.
+- **Statement overlap:** exact located match, contract comparison, derivation or
+  adapter, and compile result. Keep suspected matches distinct from confirmed ones.
 - **Implementation:** direct delegation, indirect delegation through a helper,
-  or an independent local argument. Follow helpers to inspect the actual reuse.
-- **Disposition:** remove and migrate, retained exception, unresolved candidate,
-  or no match found within the recorded search boundary.
+  or an independent argument. Follow helpers to inspect the actual reuse.
+- **Interface role:** mathematical purpose, automation, documented uses or
+  compatibility requirements, weighed against import and maintenance costs.
+- **Disposition:** replace the implementation and retain the interface, remove
+  and migrate, retain with justification, investigate a candidate, or no match
+  found within the recorded search boundary.
 
-Neither existing delegation nor a useful API/simp role closes a confirmed match
-under this objective. Both may justify retention under default maintainability;
-here they identify consumer work needed to remove the declaration. Judge output
-is a lead requiring source comparison and a checked adapter, not authority to
-delete a theorem. Inspect plausible more general formulations before treating
-an unsuccessful name search as a negative result.
+A useful wrapper can be accepted while remaining a known statement overlap.
+Its role does not by itself justify an independent re-proof when a suitable
+existing implementation can serve it. Conversely, mathematical derivability
+alone does not establish that deleting the interface improves the library.
+Judge output, when available, supplies leads to verify rather than authority
+to delete declarations or dismiss useful interfaces.
 
-## Remove covered declarations and migrate consumers
+## Choose and verify the repair
 
-For a confirmed match, prefer deleting the local declaration and using Mathlib
-at its consumers with short instantiations, rewrites, or local proof steps.
-Changing only the proof body leaves the statement eligible for the same flag
-and is not completion of that removal task. Avoid replacing a removed wrapper
-with an equivalent alias or exported helper that recreates the same overlap.
+Apply the [reuse retention criteria](../rubrics/reuse.md#decide-whether-keeping-the-declaration-serves-a-purpose).
+Delegate a proof to a suitable existing result while retaining an interface whose
+role justifies its cost. Remove a declaration when it adds no justified separate
+role or when a demonstrated migration improves the interface and its consumers.
+Record the tradeoff; do not delete a useful wrapper merely because a judge flags
+its statement. An unproved contract fit remains a candidate.
 
 Locate explicit uses and automation roles, including simp/ext/grind attributes,
-generated declarations, and relevant instances. Update affected proofs, imports,
-examples, and documentation; build the consumers rather than inferring migration
-from a name search. Account for heavier imports and cycles before accepting a
-replacement. Preserve required behavior using the available Mathlib API.
+generated declarations, and relevant instances. For changed or removed interfaces,
+update affected proofs, imports, examples, and documentation. Build the consumers
+rather than inferring migration from a name search. Account for heavier imports,
+cycles, and compatibility requirements before accepting a replacement. Avoid
+recreating an unjustified redundant interface under a new alias or helper name.
 
-Use the ordinary breaking-change policy, with documented mappings and all
-affected in-repository consumers migrated. A stricter compatibility requirement,
-an unavailable replacement import, or a demonstrated unsolved consumer obligation
-can require retaining a covered declaration. Record the concrete constraint,
-remaining flag, and pending work as an exception. Convenience, an existing caller,
-or an API role alone is not an exception. An unproved contract fit remains a
-candidate, not a confirmed removable match. Continue independent work when one
-candidate cannot be accepted.
+For a deletion, preserve the original quantified statement and definition
+meanings, then compile a recovery witness using the replacement with no stronger
+assumptions. The witness must not depend on the deleted theorem or a circular
+alias/helper. Keep witnesses in designated verification evidence; when measuring
+implementation duplication, exclude them consistently from that population.
+Required main claims must remain available or have checked recovery through the
+migrated API. A weaker matching claim cannot replace a stronger original one.
 
-For every deletion, preserve the original quantified statement and definition
-meanings, then compile a recovery witness using the replacement and no stronger
-assumptions. Keep witnesses in designated verification evidence outside the
-implementation population; they must not depend on the deleted theorem or an
-alias/helper whose proof depends on it. Required main claims must remain
-available or have checked recovery through the migrated API. Deleting a stronger
-claim because only a weaker one matches does not preserve the mathematics.
+Use [Verify](verify.md) for proof replacements, original-claim recovery, trust,
+automation, and integration checks. Record verified proof reuse separately from
+declaration removals. Retained interfaces need their reasons documented; pending
+implementation work and unavailable checks remain visible. Continue independent
+work when a candidate cannot be accepted.
 
-## Measure and finish against the objective
+## Measure duplication when requested
 
-Run the same judge protocol on the final candidate within the run's execution
-and resource limits. Record actual baseline/final flag counts, eligible counts,
-and rates, plus removed, added, and surviving declaration mappings. Show verdict
-transitions on matched survivors separately: a removed declaration is not a
-new `none_found` judgment. Reconcile removed claims with their recovery witnesses
-and migrated consumers. Newly introduced eligible declarations must be evaluated
-too; unrelated additions must not dilute the reported comparison.
+Numerical evaluation is optional and does not change the retention criteria.
+If requested, identify the judge rubric, prompt/schema, eligible source set and
+filters, allowed dependency revisions, model/settings, and pass count. Preserve
+these with baseline sources and results before editing. Reuse an evaluation
+only when its inputs and provenance fit the comparison. An unavailable judge
+leaves the requested measurement unavailable, without preventing source review
+or independently verified repairs.
 
-Keep three outcomes separate: verified declaration removals, proof-step reuse,
-and measured judge reduction. A successful build, fewer lines, a shorter proof,
-or fewer manually predicted flags does not establish a measured reduction.
-Record protocol/model differences and judge flips on unchanged declarations;
-a single pass does not establish repeatability. Refresh only comparisons whose
-inputs changed, rather than repeatedly judging unchanged snapshots to seek a
-better score.
+Use the judge's actual distinctions and exclusions. An inclusive metric can flag
+both an equivalent statement (`duplicate`) and a specialization (`special_case`),
+even when its proof already calls the match. Respect its derivation bound, such
+as one or two short lines using one substantive declaration and routine glue.
+A long compiled derivation establishes recoverability, not necessarily a match
+under that scoring rule. Keep judge verdicts distinct from manual classifications.
 
-Finish the declared review with each confirmed match removed and verified or
-explicitly retained as an exception, and candidates/gaps still visible. Report
-whether the measured result meets the user's reduction or threshold target.
-If evaluation is unavailable or the score does not improve, report that objective
-as unverified or unmet even when the patch is otherwise verified. Apply the
-ordinary campaign closure conditions when campaign mode was selected; a zero
-score is required only when the user requested that target. Do not invent
-unrelated changes to force a target when no supported repair remains.
+Keep the complete cLEAN theorem inventory, including private declarations,
+separate from the judge's eligible population, and map both to stable IDs in the
+[duplication records](../references/records.md#duplication-review-records). Keep
+scope, filters, and source ownership consistent. Changing visibility, moving
+copies outside the scan, or adding unflagged padding is not deduplication.
+
+Run the same protocol on the final candidate within the resource limits. Report
+actual baseline/final flag counts, eligible counts and rates, and removed, added,
+and surviving declaration mappings. Evaluate newly introduced eligible declarations;
+unrelated additions must not dilute the comparison. Show verdict transitions on
+matched survivors separately: a removed declaration is not a new `none_found`
+judgment. Reconcile deletions with recovery witnesses and migrated consumers.
+
+Keep verified declaration removals, proof-step reuse, justified retained overlaps,
+and measured score changes separate. A retained wrapper may still be flagged
+after its proof improves; record the actual result rather than predicting a
+reduction from shorter code or successful builds. Record protocol differences
+and flips on unchanged statements; a single pass does not establish repeatability.
+Do not repeatedly judge unchanged snapshots to seek a better score.
+
+## Finish the duplication review
+
+For each confirmed overlap, record a verified repair or an evidence-backed
+retention decision, with candidates and search gaps still visible. Justified
+retention can resolve an interface question while implementation work remains;
+accept that repair only after its own checks pass. Apply the ordinary campaign
+closure conditions when campaign mode was selected.
+
+When evaluation was requested, report separately whether its measurement or
+threshold target was met. An unavailable evaluation or unmet score target leaves
+that deliverable unavailable or unmet, even when maintenance repairs are verified.
+A useful retained overlap is not automatically a maintenance defect, and no
+implicit zero-flag target applies. Do not invent unrelated changes or delete
+useful APIs merely to force a score.

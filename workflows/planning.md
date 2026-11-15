@@ -17,15 +17,12 @@ Judge proposed work against the user's requested outcomes, existing claims and
 consumers, and effective project policies. Reassess existing material on its
 merits even when it has already merged. Existing material may be reorganized,
 replaced, documented, or deleted when required mathematics and useful interfaces
-are preserved under the selected objective and compatibility policy.
+are preserved or migrated under the user's mandate and compatibility policy.
 
 Use the [reuse retention criteria](../rubrics/reuse.md#decide-whether-keeping-the-declaration-serves-a-purpose)
-to judge covered interfaces under default maintainability. The absence of an
+to judge covered interfaces by their maintenance value. The absence of an
 internal reference is insufficient to delete a public result; consider its
 documented purpose, examples, external obligations, and consumer-search limits.
-When inclusive duplication is explicitly selected, removal of a confirmed
-Mathlib-covered interface and migration of its consumers is intended scope,
-subject to that objective's preservation and exception rules.
 
 New supporting lemmas and modest generalizations belong in cleanup when they
 directly enable an identified repair or reusable interface. Explain their role
@@ -151,11 +148,12 @@ workers claim, execute, and integrate them.
 
 ## Specify acceptance and stopping conditions
 
-For `objective: inclusive-duplication`, follow the [removal policy](inclusive-duplication.md#remove-covered-declarations-and-migrate-consumers).
-Plan confirmed covered statements as declaration removals with consumer migration
-and recovery witnesses. Keep proof-body-only reuse tasks separate; they cannot
-substitute for this objective. Name retained matches and their constraints, and
-include comparable baseline/final judge evaluation in the acceptance plan.
+For duplication findings, follow [repair and migration](inclusive-duplication.md#choose-and-verify-the-repair).
+Plan evidence-backed proof delegation, declaration removal, or justified retention
+according to the interface's role and maintenance cost. Deletions need consumer
+migration and recovery witnesses. Keep proof-only reuse and declaration removals
+separate in the records. Include a comparable baseline/final numerical evaluation
+only when requested; a duplication flag alone is not a repair requirement.
 
 For each batch, identify the affected build targets and consumers, the appropriate
 axiom or statement-preservation checks, and a separate quality review. Reuse

@@ -154,11 +154,12 @@ removed modules, or changed build configuration could mask missing coverage.
 
 ## Verify the claimed improvement
 
-For `objective: inclusive-duplication`, apply [metric verification](inclusive-duplication.md#measure-and-finish-against-the-objective)
-as well as the ordinary checks. Verify deletion and recovery independently of
-judge output. An eligible retained wrapper remains a known match even after its
-proof is shortened. Report measured reduction only from comparable actual judge
-runs; unavailable evaluation leaves that part of acceptance unverified.
+Apply [duplication repair checks](inclusive-duplication.md#choose-and-verify-the-repair)
+to reuse changes. Verify proof delegation, justified retention, or deletion and
+recovery independently of judge output. A retained useful wrapper can remain a
+known overlap after its proof is shortened. When numerical evaluation was
+requested, use [comparable actual judge runs](inclusive-duplication.md#measure-duplication-when-requested)
+and report unavailable or unmet measurements separately from repair verification.
 
 Revisit the relevant rubrics and the concrete acceptance condition:
 

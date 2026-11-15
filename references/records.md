@@ -18,10 +18,9 @@ entry for the final accepted state.
   or content hashes of the instruction files used. The version label alone may
   not distinguish changing drafts. Record the executing model when available.
 - **Mandate:** requested operation (audit, plan, refactor, or verify), persistence
-  mode (`bounded` or `campaign`), objective (`maintainability` by default,
-  or explicitly selected `inclusive-duplication`), scope and review depth/exclusions,
-  main claims, effective compatibility and axiom policies, pinned Lean/dependency
-  versions, and resource limits.
+  mode (`bounded` or `campaign`), scope and review depth/exclusions, requested
+  outcomes and numerical evaluations, main claims, effective compatibility and
+  axiom policies, pinned Lean/dependency versions, and resource limits.
 - **Evidence:** baseline commands and failures, preserved specification location,
   mathematical sources, coverage by module and angle, and unperformed checks.
   Keep the [theorem review](#theorem-review) inventory and individual outcomes;
@@ -133,25 +132,27 @@ judge evaluation records its model/protocol, pass count, sampling, and denominat
 compare matched theorem cohorts and show additions/removals separately. Keep
 judge flags separate from Lean-verified findings and repairs.
 
-### Inclusive duplication records
+### Duplication review records
 
-For [the inclusive objective](../workflows/inclusive-duplication.md), extend the
-same run and theorem records rather than creating a separate inventory:
+For [duplication review](../workflows/inclusive-duplication.md) during normal
+cleanup, extend the same run and theorem records rather than creating a separate
+inventory. Numerical evaluation fields apply only when evaluation was requested:
 
-- **Protocol/population:** judge rubric/prompt/schema identities, source filters,
-  allowed dependency revisions, model/settings/pass count, baseline/final source
+- **Protocol/population (when evaluating):** judge rubric/prompt/schema identities,
+  source filters, allowed dependency revisions, model/settings/pass count, baseline/final source
   identities, eligible counts, and stable mappings to the cLEAN inventory.
-- **Per theorem:** actual judge verdict versus manual classification, exact
-  Mathlib match, contract fit and derivation, compile check, existing direct or
-  indirect delegation versus independent proof, and removal/retained-exception/
-  unresolved/no-match disposition. An exception names its concrete constraint;
-  it remains a known covered statement, not a negative search result.
+- **Per theorem:** exact Mathlib/local match, contract fit and derivation,
+  compile check, existing direct or indirect delegation versus independent proof,
+  interface role and maintenance tradeoff, and proof-replacement/removal/justified-
+  retention/unresolved/no-match disposition. Retention records its reason and any
+  remaining implementation work; it does not erase known overlap. Keep optional
+  judge verdicts separate from manual classification and repair decisions.
 - **Removal evidence:** replacement-use mapping, original-claim recovery witness,
   migrated consumers and automation, integration checks, and final candidate.
   Proof-only improvements are recorded separately from declaration removals.
-- **Metric result:** actual flag counts, eligible counts, and rates before/after;
-  added/removed/matched populations; verdict transitions on surviving matched
-  declarations; remaining exceptions/candidates; protocol differences and flips
+- **Metric result (when evaluating):** actual flag counts, eligible counts, and
+  rates before/after; added/removed/matched populations; verdict transitions on
+  surviving matched declarations; justified retentions/candidates; protocol differences and flips
   on unchanged statements. Separate verified changes from measured score changes.
   Record evaluation as unavailable when it could not run, and the target as unmet
   when measured results do not satisfy it. Do not relabel removals as `none_found`.
