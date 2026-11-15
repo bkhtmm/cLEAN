@@ -94,9 +94,9 @@ first integrated unit to measure whether the partition and build schedule work.
    context changed, and deduplicate [improvement records](../references/records.md#verified-improvement)
    against changes retained in the combined candidate.
 
-In [campaign mode](campaign.md), the coordinator also owns coverage and the
-discovery frontier. When the initial tasks finish, inspect the next uncovered
-area or perform closure review; do not end the campaign on worker completion
+For [whole-repository or broad multi-area work](campaign.md), the coordinator owns
+coverage and the discovery frontier. When the initial tasks finish, inspect the next uncovered
+area or perform closure review; do not declare completion from worker task
 counts. For full theorem coverage, run the
 [final reconciliation](verify.md#reconcile-theorem-coverage) against the current
 source inventory and review records. Dispatch a fresh closure reviewer only

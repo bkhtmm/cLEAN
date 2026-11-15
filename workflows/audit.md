@@ -124,7 +124,7 @@ For a broad library audit or cleanup, give every in-scope source-authored theore
 or lemma its own [review record](../references/records.md#theorem-review), including
 private declarations and unchanged code. A focused repair covers changed and
 affected declarations; an explicitly sampled audit states its selection and
-cannot claim full theorem coverage. This depth is independent of persistence mode.
+cannot claim full theorem coverage. Review depth follows the declared scope.
 
 1. **Establish the inventory.** Enumerate project-owned Lean sources and their
    theorem/lemma declarations at the baseline snapshot. Record inclusion rules,

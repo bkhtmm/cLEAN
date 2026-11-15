@@ -1,6 +1,6 @@
 # Explain the result
 
-Use this guide for user-facing audit, planning, repair, verification, and campaign
+Use this guide for user-facing audit, planning, repair, verification, and repository
 handoffs. Keep the operation's required evidence and acceptance conditions from
 its workflow. Choose an explanation that fits the actual work, the reader's
 needs, and the user's requested format.
@@ -27,8 +27,8 @@ The following are options, not required sections or claims about the target:
 | A theorem generalized | Old/new signatures and an example application | Checked recovery of the original result and the generalized proof |
 | Mathematical modules reorganized | Before-and-after module maps, grouped by mathematical role | Actual definitions, imports, consumers, and migration mapping |
 | Main statements made easier to inspect | A comparison of definition modules and their import footprint | The same claims and a consistent dependency measurement |
-| An audit or partially completed campaign | Findings and an area/angle coverage view | Recorded inspection depth, confidence, checks, and remaining gaps |
-| A long campaign with useful recorded history | A milestone timeline or optional playback | Observed events, snapshots, and accepted/integrated task states |
+| An audit or partially completed repository cleanup | Findings and an area/angle coverage view | Recorded inspection depth, confidence, checks, and remaining gaps |
+| A long cleanup with useful recorded history | A milestone timeline or optional playback | Observed events, snapshots, and accepted/integrated task states |
 
 ## Answer the material questions
 
@@ -159,6 +159,6 @@ editable visual sources and supporting data with substantial artifacts when
 needed for review or reproduction.
 
 Finish with the operation's real completion status. A polished report cannot
-accept an unchecked task or close an incomplete campaign. On later real runs,
+accept an unchecked task or close incomplete repository work. On later real runs,
 use reader confusion and observed reporting failures to refine this guide;
 examples here are starting points, not a validated universal presentation.

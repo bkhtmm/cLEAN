@@ -39,7 +39,7 @@ locally for human review and submission.
 
 For a small, clearly named repair, keep the baseline and plan inline and read
 only the relevant rubric and repair/verification sections. Broad inventories,
-separate design reports, and a campaign ledger are for work that needs them.
+separate design reports, and a progress ledger are for work that needs them.
 The same preservation and acceptance requirements still apply.
 
 For reorganization and broad library work, use [Structure](workflows/structure.md)
@@ -71,30 +71,33 @@ Numerical duplication evaluation is optional and runs when requested. Report
 measured scores separately from verified repairs and justified interface retention;
 a score alone does not establish a maintenance defect or justify deletion.
 
-## Choose persistence
+## Work to the requested scope
 
-Use **bounded mode** by default: finish the requested scope using the workflows
-above. Select **campaign mode** when the user asks for it, or clearly requests
-repeated discovery and cleanup across a declared scope until a closure review
-finds no further actionable work. A whole-repository path alone does not select
-campaign mode. Record `mode: bounded` or `mode: campaign` in the run state.
+For whole-repository or broad multi-area requests, read
+[Sustained repository work](workflows/campaign.md). Automatically follow its
+discovery, coverage, verified-batch, and closure loop for the requested operation.
+Continue until the declared scope meets its coverage and acceptance requirements,
+or checkpoint at a resource limit or a blocker that prevents further in-scope work.
+Finishing the initial backlog alone is not completion.
 
-For campaign mode, read [Campaign](workflows/campaign.md). It wraps the same
-audit, planning, repair, and verification work in a coverage-and-discovery loop;
-finishing the initial backlog is not its completion condition. Preserve the
-requested operation: a campaign audit or plan still leaves target sources
-unchanged. Mode selection does not grant delegation, publication, extra resource
-spending, or a broader mathematical scope. Explicit requests take precedence
-over defaults, and a resumed run retains its recorded mode until changed.
+For focused requests, finish the named task and its affected consumers. Crossing
+file or directory boundaries does not by itself turn a focused repair into a
+repository-wide review. Scale the baseline, plan, and records to the work.
+
+Preserve the requested operation: audits and plans leave target sources unchanged.
+The scope does not grant delegation, publication, extra spending, or unrelated
+mathematical work. On resumption, use the recorded operation, scope, coverage,
+remaining work, and resource limits after checking the saved state against the
+actual repository.
 
 ## Review quality
 
 Read [Shared review rules](rubrics/_common.md) whenever judging quality. Use the
 following angles where relevant. Broad library audits and cleanups require
 [individual theorem coverage](workflows/audit.md#theorem-coverage) for removable
-hypotheses and existing Mathlib/local replacements throughout the declared scope,
-in bounded as well as campaign mode. Other angles can use representative deep
-inspection when the coverage is labeled. A user-requested sample retains its
+hypotheses and existing Mathlib/local replacements throughout the declared scope.
+Other angles can use representative deep inspection when the coverage is labeled.
+A user-requested sample retains its
 explicit limits; resource limits leave coverage incomplete rather than silently
 converting a full review into sampling. Focused repairs and patch verification
 review the changed and affected declarations without expanding to the repository.
@@ -147,7 +150,7 @@ avoid enforcing a universal folder taxonomy or a numerical quality score.
 **Make evidence durable and proportionate.** Use the user's working location or
 an identified run directory. The [record formats](references/records.md) define
 theorem coverage, findings, tasks, checks, verified improvements, and measurements.
-Small jobs can keep them in one file; large campaigns should keep resumable shared
+Small jobs can keep them in one file; large runs should keep resumable shared
 records. Reuse evidence only when its inputs still match. Observe resource limits
 and report actual coverage.
 

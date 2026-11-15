@@ -140,5 +140,6 @@ records, observed improvement, and unresolved findings. Keep optional upstream
 candidates as local notes unless submission was requested. Execute further
 ready tasks within the authorized scope; stop only for completion, a real
 unresolved dependency, or a resource limit, with the remaining state recorded.
-In [campaign mode](campaign.md), return each integrated batch to discovery and
-coverage review. A finished task or empty initial backlog is not campaign closure.
+For [whole-repository or broad multi-area work](campaign.md), return each integrated
+batch to discovery and coverage review. A finished task or empty initial backlog
+does not establish closure of the declared scope.
