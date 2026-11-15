@@ -188,7 +188,6 @@ upgrade dependencies, or turn a local cleanup into an upstream submission.
 | [report](workflows/report.md) | Flexible result explanations, visual selection, and links to supporting evidence |
 | [rubrics](rubrics/_common.md) | Shared evidence rules and quality angles, including build health, linked from the entry point |
 | [records](references/records.md) | Portable run, finding, task, check, and handoff formats |
-| [design](docs/design.md) | Research sources, adaptations, and architecture choices |
 | [agents/openai.yaml](agents/openai.yaml) | Optional UI metadata; the workflow itself is agent-neutral |
 
 ## Validation and next pilots
@@ -196,9 +195,7 @@ upgrade dependencies, or turn a local cleanup into an upstream submission.
 The draft has been tried on small Lean-only examples. Large Mathlib repositories,
 multi-agent campaigns, and automatic continuation across runtime turns still
 need testing before relying on large autonomous campaigns.
-The research sources and their reviewed versions are recorded in `docs/design.md`.
 
 ## License
 
-[MIT](LICENSE). Research sources and design influences are credited in
-[the design record](docs/design.md).
+[MIT](LICENSE).

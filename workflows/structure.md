@@ -212,5 +212,3 @@ without the original proof machinery, or a coherent mathematical topic becoming
 findable at its documented home. Record the verified mappings and remaining
 boundaries in the existing run state, then continue the scoped cleanup. Directory
 counts and a prettier tree alone do not establish improvement.
-
-For the source comparisons and rationale, see [Design](../docs/design.md#repository-structure).

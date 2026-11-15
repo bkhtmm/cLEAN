@@ -159,5 +159,4 @@ notes, and remaining findings. Separate audit completion, task acceptance, and
 repository verification. Missing tools or exhausted resources limit the claim;
 they do not prove success or failure of the mathematics.
 
-For the rationale and source-to-design mapping, read [Design](docs/design.md).
 For installation and example requests, see [README](README.md).
