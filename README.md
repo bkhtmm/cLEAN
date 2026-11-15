@@ -90,13 +90,18 @@ audit-only and plan-only requests leave target sources unchanged.
 
 ## Select the cleanup objective
 
-The default objective is `inclusive-duplication`: remove confirmed Mathlib-covered
-local declarations and migrate their consumers, including useful wrappers whose
-proofs already delegate to Mathlib. Ordinary `$clean` requests use this policy;
-no objective phrase is required:
+The default objective is `maintainability`. Ordinary `$clean` requests search for
+Mathlib/local overlap and replace duplicated implementations where appropriate.
+Useful wrappers can remain when their mathematical, automation, or compatibility
+role justifies their cost; their proofs should reuse existing mathematics when
+suitable. Redundant declarations can be deleted with their consumers migrated.
+
+Select `objective: inclusive-duplication` explicitly to prefer removing confirmed
+Mathlib-covered declarations, including useful wrappers, under the
+[inclusive workflow's removal and exception rules](workflows/inclusive-duplication.md):
 
 ```text
-Use $clean to refactor /path/to/formalization and deduplicate against Mathlib.
+Use $clean with objective: inclusive-duplication to refactor /path/to/formalization.
 Preserve the main claims and dependency pins. Verify recovery of removed
 statements and migrate affected consumers. Use the frozen judge protocol at
 /path/to/judge to report actual before/after counts, rates, and exceptions.
@@ -107,8 +112,8 @@ overlap from duplicated proof implementation. Shortening a proof alone does not
 remove its statement's flag. Judge evaluation can be unavailable or noisy, so
 verified repairs and measured reduction are reported separately. This objective
 can be combined with bounded or campaign mode; audit/plan requests still make no
-source changes. If the user explicitly wants useful covered interfaces retained,
-they can select `objective: maintainability`; overlap must still be documented.
+source changes. Both objectives require overlap searches, preservation, and
+consumer checks; they differ in whether a useful interface can justify retention.
 
 ## Select bounded or campaign mode
 
@@ -195,6 +200,13 @@ upgrade dependencies, or turn a local cleanup into an upstream submission.
 The draft has been tried on small Lean-only examples. Large Mathlib repositories,
 multi-agent campaigns, and automatic continuation across runtime turns still
 need testing before relying on large autonomous campaigns.
+
+## Acknowledgments
+
+cLEAN's mathematical review criteria are adapted from
+[TauCetiReview](https://github.com/TauCetiProject/TauCetiReview/tree/main/rubrics).
+Its workflows apply those criteria to auditing, planning, refactoring, migrating,
+and verifying existing Lean repositories.
 
 ## License
 

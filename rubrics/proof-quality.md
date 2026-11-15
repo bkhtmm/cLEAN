@@ -11,23 +11,22 @@ shared statement before demanding extraction. Keep genuine one-offs inline
 when a new lemma would add naming and dependency burden without benefit.
 A general reusable fact may deserve a public home even if it appears once.
 
-Default to stable automation available in the pinned environment when it
-replaces fragile sequences of individual rewrites. Short explicit arguments
-remain appropriate. When retaining a long calculation instead of automation,
-explain its concrete advantage in clarity, stability, or measured cost. Avoid
-dependence on incidental unfolding or unrelated global rules.
+Choose automation or explicit lemmas for clarity, stability, and cost in the
+pinned environment. Automation can replace fragile rewrite chains; an explicit
+calculation can better expose the argument. A tactic choice alone is not a
+finding. Avoid dependence on incidental unfolding or unrelated global rules.
 
-In new or rewritten proofs, first seek an explicit rewrite or characteristic
-API lemma before using `change` or `show`. If either is retained, include a brief
-comment explaining why the alternatives are unsuitable. Flag accidental
-definitional equality across wrappers or coercions and require an explicit
-interface lemma where needed.
+`change` and `show` can clarify a goal or type and do not require comments merely
+because they occur. Explain surprising dependencies on representation details,
+coercions, or definitional equality when they affect understanding or robustness.
+Prefer a characteristic API lemma when it removes a demonstrated fragile
+dependency; do not require one for routine goal restatement.
 
-A proof exceeding 50 lines should trigger a review for useful intermediate
-lemmas. Extract substantial reusable reasoning. When keeping the argument
-together is justified, add comments explaining its mathematical stages wherever
-the script leaves them unclear. Inspect short proofs too for unexplained,
-context-dependent unfolding.
+Review substantial proofs for useful intermediate lemmas and extract reusable
+reasoning when its benefit justifies the new interface. Add comments explaining
+mathematical stages where the script leaves them unclear. Proof length can guide
+inspection, but no line-count threshold establishes a defect. Inspect short
+proofs too for unexplained, context-dependent unfolding.
 
 Check unnecessary hypotheses, unjustified `revert`/context manipulation, global
 option changes, and unexplained heartbeat or recursion-depth increases when
