@@ -6,12 +6,23 @@ the reader task it supports and the confusion or burden it creates.
 
 ## Names and notation
 
-Read neighboring declarations and the pinned library before proposing a rename.
+Before checking or changing names, read the bundled
+[Mathlib naming conventions](../references/mathlib-naming-conventions.md).
+Use that guide as the default naming standard and cite the applicable rule when
+reporting a convention violation. Its source revision and retrieval date are
+recorded in the file; compare relevant examples with the project's pinned
+Mathlib when version differences matter. Honor explicit project exceptions and
+compatibility requirements.
+
+Read neighboring declarations and the pinned library to understand existing use
+and plan a coherent migration. An existing nonstandard naming pattern does not
+by itself justify retaining it.
+
 Prefer theorem names describing conclusions and relevant hypotheses over proof
 stage names, task numbers, or tactic names. Check that a name does not advertise
 an equivalence, uniqueness, or equality when the statement proves less. Cite a
 located convention or consumer problem when terminology is said to be nonstandard.
-Follow local/Mathlib casing conventions where applicable; mechanical style
+Follow Mathlib casing conventions where applicable; mechanical style
 enforced by existing tooling need not be rediscovered as a semantic finding.
 
 Use namespaces that fit the object and established extension conventions.
